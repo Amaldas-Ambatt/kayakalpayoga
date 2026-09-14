@@ -202,7 +202,7 @@
           </a>
 
           <!-- Mobile Hamburger Toggle -->
-          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-cosmic hover:bg-ivoryDark transition" aria-label="Open Menu">
+          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-cosmic hover:bg-ivoryDark transition" aria-label="Open Menu" data-i18n-aria="menu_aria">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
             </svg>
@@ -238,7 +238,8 @@
       <div class="absolute inset-0 z-0">
         <img 
           src="kayakalpa-hero.jpg" 
-          alt="Kayakalpa meditation, 7 chakras and vital energy in sacred nature" 
+          alt="Meditazione Kayakalpa, 7 chakra ed energia vitale nella natura sacra" 
+          data-i18n-alt="alt_hero"
           class="w-full h-full object-cover opacity-35 scale-105"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep via-cosmic/90 to-cosmic-dark/75"></div>
@@ -440,7 +441,7 @@
             <p class="font-serif italic text-lg sm:text-xl md:text-2xl text-ivory leading-relaxed max-w-3xl mx-auto" data-i18n="home_blessing_text">
               "La vera giovinezza non è un'illusione esteriore, ma la purificazione della forza vitale che risiede nella colonna vertebrale e risveglia le cellule al loro potenziale originario."
             </p>
-            <div class="text-xs text-solarGold-light font-medium tracking-wide">
+            <div class="text-xs text-solarGold-light font-medium tracking-wide" data-i18n="home_blessing_author">
               &mdash; Acharya Mohan &bull; Parvati Scuola di Yoga
             </div>
           </div>
@@ -499,12 +500,13 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             
             <!-- Chakra Image Column -->
-            <div class="lg:col-span-5 relative flex justify-center">
-              <div class="w-full max-w-sm rounded-2xl overflow-hidden border-2 border-solarGold/70 shadow-2xl relative group bg-cosmic-deep">
+            <div class="lg:col-span-5 relative">
+              <div class="rounded-2xl overflow-hidden border-2 border-solarGold/60 shadow-2xl relative group bg-cosmic-deep">
                 <img 
-                  src="kayakalpa-chakras.jpg" 
+                  src="kayakalpa-hero.jpg" 
                   alt="I 7 Chakra e la risalita di energia vitale nello stile Kayakalpa Yoga" 
-                  class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                  data-i18n-alt="alt_chakra"
+                  class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div class="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-cosmic-deep/90 backdrop-blur-md border border-solarGold/40 text-center text-xs">
                   <span class="font-serif italic text-solarGold-light block" data-i18n="chakra_caption_1">Sushumna Nadi & I 7 Centri di Coscienza</span>
@@ -641,6 +643,7 @@
               <img 
                 src="acharya-portrait.jpg" 
                 alt="Acharya Mohan in meditazione, guida spirituale di Kayakalpa Yoga" 
+                data-i18n-alt="alt_acharya"
                 class="w-full h-full object-cover"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep via-transparent to-transparent lg:hidden"></div>
@@ -934,6 +937,7 @@
               <img 
                 src="kayakalpa-sanctuary.jpg" 
                 alt="Atmosfera sacra di meditazione a Parvati Scuola di Yoga Sorengo Lugano" 
+                data-i18n-alt="alt_sanctuary"
                 class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div class="absolute bottom-3 left-3 right-3 px-4 py-2 rounded-lg bg-cosmic-deep/90 backdrop-blur-md border border-solarGold/30 text-ivory text-xs flex justify-between items-center">
@@ -947,6 +951,7 @@
                 <img 
                   src="kayakalpa-hero.jpg" 
                   alt="Lago e montagne del Ticino" 
+                  data-i18n-alt="alt_lake"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/80 via-transparent to-transparent flex items-end p-2.5">
@@ -958,6 +963,7 @@
                 <img 
                   src="kayakalpa-spine.jpg" 
                   alt="Decompressione della colonna vertebrale e allineamento energetico" 
+                  data-i18n-alt="alt_spine"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/80 via-transparent to-transparent flex items-end p-2.5">
@@ -1059,7 +1065,7 @@
               </ul>
             </div>
 
-            <button onclick="prefillBooking('Iniziazione Kayakalpa Yoga')" class="w-full py-3 rounded-xl bg-cosmic hover:bg-sapphire text-ivory text-xs font-semibold uppercase tracking-wider transition">
+            <button onclick="prefillBooking('kayakalpa')" class="w-full py-3 rounded-xl bg-cosmic hover:bg-sapphire text-ivory text-xs font-semibold uppercase tracking-wider transition">
               <span data-i18n="btn_book_course">Iscriviti o Richiedi Info</span>
             </button>
           </div>
@@ -1091,7 +1097,7 @@
               </ul>
             </div>
 
-            <button onclick="prefillBooking('Hatha Yoga Tradizionale')" class="w-full py-3 rounded-xl bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white text-xs font-semibold uppercase tracking-wider transition shadow">
+            <button onclick="prefillBooking('hatha')" class="w-full py-3 rounded-xl bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white text-xs font-semibold uppercase tracking-wider transition shadow">
               <span data-i18n="btn_trial_free">Richiedi Lezione di Prova</span>
             </button>
           </div>
@@ -1123,7 +1129,7 @@
               </ul>
             </div>
 
-            <button onclick="prefillBooking('Maha Kundalini & Meditazione')" class="w-full py-3 rounded-xl bg-cosmic hover:bg-sapphire text-ivory text-xs font-semibold uppercase tracking-wider transition">
+            <button onclick="prefillBooking('kundalini')" class="w-full py-3 rounded-xl bg-cosmic hover:bg-sapphire text-ivory text-xs font-semibold uppercase tracking-wider transition">
               <span data-i18n="btn_book_course">Iscriviti o Richiedi Info</span>
             </button>
           </div>
@@ -1235,7 +1241,7 @@
                 <div class="flex items-start gap-3">
                   <span class="text-solarGold-light text-base">✉️</span>
                   <div>
-                    <strong class="text-white block text-sm">Email</strong>
+                    <strong class="text-white block text-sm" data-i18n="booking_info_email_label">Email</strong>
                     <a href="mailto:kayakalpayogam@gmail.com" class="hover:text-solarGold-light transition text-solarGold-light">kayakalpayogam@gmail.com</a>
                   </div>
                 </div>
@@ -1384,7 +1390,7 @@
               <span class="text-2xl text-ruby">📍</span>
               <div>
                 <h4 class="font-bold text-cosmic text-sm" data-i18n="loc_addr_title">Indirizzo dello Studio</h4>
-                <p class="text-xs text-charcoal/80 font-medium">Via Ponte Tresa 7B, 6924 Sorengo (Lugano), Svizzera</p>
+                <p class="text-xs text-charcoal/80 font-medium" data-i18n="loc_addr_val">Via Ponte Tresa 7B, 6924 Sorengo (Lugano), Svizzera</p>
               </div>
             </div>
 
@@ -1400,7 +1406,7 @@
               <span class="text-2xl text-emerald-500">💬</span>
               <div>
                 <h4 class="font-bold text-cosmic text-sm" data-i18n="loc_contact_title">Contatto Diretto & WhatsApp</h4>
-                <p class="text-xs text-charcoal/70">
+                <p class="text-xs text-charcoal/70" data-i18n="loc_contact_details">
                   WhatsApp / Mob: <a href="https://wa.me/41794683258" class="text-emerald-600 font-bold hover:underline">+41 79 468 32 58</a> &bull; Tel: <a href="tel:+41919945068" class="hover:underline">+41 91 994 50 68</a><br />
                   Email: <a href="mailto:kayakalpayogam@gmail.com" class="hover:text-saffron transition underline decoration-sandstone underline-offset-2">kayakalpayogam@gmail.com</a>
                 </p>
@@ -1413,7 +1419,7 @@
               <span data-i18n="loc_btn_trial">Richiedi Info o Prova</span>
             </a>
             <a href="https://wa.me/41794683258" target="_blank" class="px-8 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider shadow transition flex items-center gap-1.5">
-              <span>WhatsApp Studio (+41 79 468 32 58)</span>
+              <span data-i18n="loc_btn_wa">WhatsApp Studio (+41 79 468 32 58)</span>
             </a>
           </div>
         </div>
@@ -1434,6 +1440,7 @@
                 <img 
                   src="kayakalpa-sanctuary.jpg" 
                   alt="Santuario di meditazione sul lago" 
+                  data-i18n-alt="alt_contact_sanctuary"
                   class="w-full h-full object-cover"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep via-transparent to-transparent flex items-end p-4">
@@ -1516,9 +1523,9 @@
           </p>
 
           <div class="pt-3 text-xs text-ivory/60 space-y-1">
-            <p><strong>WhatsApp Studio:</strong> <a href="https://wa.me/41794683258" class="text-solarGold-light hover:underline">+41 79 468 32 58</a></p>
-            <p><strong>Telefono Studio:</strong> +41 91 994 50 68 / +41 79 468 32 58</p>
-            <p><strong>Email:</strong> <a href="mailto:kayakalpayogam@gmail.com" class="text-solarGold-light hover:underline">kayakalpayogam@gmail.com</a></p>
+            <p><strong data-i18n="footer_contact_wa">WhatsApp Studio:</strong> <a href="https://wa.me/41794683258" class="text-solarGold-light hover:underline">+41 79 468 32 58</a></p>
+            <p><strong data-i18n="footer_contact_phone">Telefono Studio:</strong> +41 91 994 50 68 / +41 79 468 32 58</p>
+            <p><strong data-i18n="footer_contact_email">Email:</strong> <a href="mailto:kayakalpayogam@gmail.com" class="text-solarGold-light hover:underline">kayakalpayogam@gmail.com</a></p>
           </div>
         </div>
 
@@ -1602,20 +1609,20 @@
 
     const courseOptions = {
       it: [
-        { value: "Lezione di Prova Gratuita", text: "Lezione di Prova Gratuita" },
-        { value: "Iniziazione al Kayakalpa Yoga", text: "Iniziazione al Kayakalpa Yoga" },
-        { value: "Hatha Yoga Tradizionale", text: "Hatha Yoga Tradizionale" },
-        { value: "Maha Kundalini & Meditazione", text: "Maha Kundalini & Meditazione" },
-        { value: "Incontro Individuale con l'Acharya", text: "Incontro Individuale con l'Acharya" },
-        { value: "Ritiri in India (Santhivanam Kerala)", text: "Ritiri in India (Santhivanam Kerala)" }
+        { id: "trial", value: "Lezione di Prova Gratuita", text: "Lezione di Prova Gratuita" },
+        { id: "kayakalpa", value: "Iniziazione al Kayakalpa Yoga", text: "Iniziazione al Kayakalpa Yoga" },
+        { id: "hatha", value: "Hatha Yoga Tradizionale", text: "Hatha Yoga Tradizionale" },
+        { id: "kundalini", value: "Maha Kundalini & Meditazione", text: "Maha Kundalini & Meditazione" },
+        { id: "private", value: "Incontro Individuale con l'Acharya", text: "Incontro Individuale con l'Acharya" },
+        { id: "retreat", value: "Ritiri in India (Santhivanam Kerala)", text: "Ritiri in India (Santhivanam Kerala)" }
       ],
       en: [
-        { value: "Free Trial Session", text: "Free Trial Session" },
-        { value: "Kayakalpa Yoga Initiation", text: "Kayakalpa Yoga Initiation" },
-        { value: "Traditional Hatha Yoga", text: "Traditional Hatha Yoga" },
-        { value: "Maha Kundalini & Meditation", text: "Maha Kundalini & Meditation" },
-        { value: "Private Meeting with Acharya", text: "Private Meeting with Acharya" },
-        { value: "India Retreats (Santhivanam Kerala)", text: "India Retreats (Santhivanam Kerala)" }
+        { id: "trial", value: "Free Trial Session", text: "Free Trial Session" },
+        { id: "kayakalpa", value: "Kayakalpa Yoga Initiation", text: "Kayakalpa Yoga Initiation" },
+        { id: "hatha", value: "Traditional Hatha Yoga", text: "Traditional Hatha Yoga" },
+        { id: "kundalini", value: "Maha Kundalini & Meditation", text: "Maha Kundalini & Meditation" },
+        { id: "private", value: "Private Meeting with Acharya", text: "Private Meeting with Acharya" },
+        { id: "retreat", value: "India Retreats (Santhivanam Kerala)", text: "India Retreats (Santhivanam Kerala)" }
       ]
     };
 
@@ -1634,29 +1641,22 @@
       }
     };
 
-    function prefillBooking(courseName) {
+    function prefillBooking(courseId) {
       navigateTo('contatti');
       const courseSelect = document.getElementById('form-course');
-      if (courseSelect) {
-        let found = false;
-        for (let i = 0; i < courseSelect.options.length; i++) {
-          if (courseSelect.options[i].text.toLowerCase().includes(courseName.toLowerCase().slice(0, 8))) {
-            courseSelect.selectedIndex = i;
-            found = true;
-            break;
-          }
-        }
-        if (!found) {
-          const opt = new Option(courseName, courseName);
-          courseSelect.add(opt);
-          courseSelect.value = courseName;
-        }
+      const list = courseOptions[currentLang] || [];
+      const found = list.find(o => o.id === courseId) || list.find(o => o.value.toLowerCase().includes((courseId || '').toLowerCase()));
+      
+      if (courseSelect && found) {
+        courseSelect.value = found.value;
       }
+      
       const notes = document.getElementById('form-notes');
-      if (notes && !notes.value) {
+      if (notes) {
+        const title = found ? found.text : courseId;
         notes.value = currentLang === 'it' 
-          ? "Interesse specifico per: " + courseName 
-          : "Specific interest for: " + courseName;
+          ? "Interesse specifico per: " + title 
+          : "Specific interest for: " + title;
       }
       setTimeout(() => {
         const target = document.getElementById('prenota');
@@ -1752,8 +1752,11 @@
         ach_tag: "Autorità Vivente",
         ach_link_geo: "Svizzera (Lugano) • India (Kerala & Himalaya)",
         ach_headline: "Dall'Ascesi Himalayana e Rishikesh all'Insegnamento in Svizzera",
+        ach_bio_title: "Oltre 40 Anni di Sadhana Ininterrotta e Trasmissione Diretta",
         ach_bio_1: "L'<strong>Acharya Mohan</strong> (Sooryanarayan Mohan) è nato nella terra spirituale del Kerala, formatosi fin dall'infanzia nei saperi tradizionali dei templi e della natura sacra. Spinto dalla sete di comprensione profonda della coscienza, ha trascorso anni di rigorosa ascesi (<em>tapasya</em>) e silenzio nelle vette e nelle grotte dell'Himalaya, ed è stato docente presso la prestigiosa <em>Yoga Vedanta Forest Academy</em> allo Sivananda Ashram di Rishikesh.",
+        ach_bio_p1: "Nato nel cuore dell'India meridionale in una stirpe profondamente radicata nelle scienze vediche e siddha, l'<strong>Acharya Mohan</strong> ha dedicato l'intera esistenza alla disciplina spirituale rigorosa, alla purificazione della colonna vertebrale e al risveglio della bio-energia. Ha completato lunghi periodi di ritiro e tapasya solitaria tra le foreste del Kerala e le vette dell'Himalaya.",
         ach_bio_2: "Quale autentica autorità nel metodo Kayakalpa e nel Maha Kundalini Yoga, l'Acharya non insegna teorie generiche: trasmette una disciplina esatta che agisce direttamente sulle cellule del corpo. Insieme a <strong>Yogini Daniela</strong> (diplomata all'Istituto Yoga Carlo Patrian di Milano e perfezionatasi a Rishikesh), guida da molti anni <strong>Parvati Scuola di Yoga</strong> a Sorengo (Lugano), alternando le lezioni in Ticino con i ritiri all'ashram Santhivanam in India.",
+        ach_bio_p2: "Contrariamente alla tendenza contemporanea di ridurre lo yoga a sequenze aerobiche o a brevetti occidentali, l'Acharya insegna lo stile <strong>Kayakalpa Yoga</strong> secondo i canoni originali dei Siddha: una trasmissione da maestro a discepolo (<em>Guru-Shishya Parampara</em>) che unisce fisiologia sottile, controllo del respiro e trasmutazione dell'energia vitale.",
         ach_quote: "\"Non insegniamo lo yoga per compiere posture acrobatiche esteriori. Vi insegniamo a sedervi in silenzio con voi stessi, permettere alle cellule del corpo di rigenerarsi e risvegliare la consapevolezza di chi siete veramente prima di ogni pensiero.\"",
         ach_author: "— Acharya Mohan",
         ach_notice: "Lezioni, consultazioni individuali e ritiri guidati dall'Acharya",
@@ -1895,7 +1898,24 @@
         portal_card_6_desc: "Richiedi una lezione di prova gratuita a Sorengo o contattaci direttamente via WhatsApp.",
         portal_card_6_btn: "Contatta lo Studio &rarr;",
         home_blessing_title: "La Parola dell'Acharya",
-        home_blessing_text: "\"La vera giovinezza non è un'illusione esteriore, ma la purificazione della forza vitale che risiede nella colonna vertebrale e risveglia le cellule al loro potenziale originario.\""
+        home_blessing_text: "\"La vera giovinezza non è un'illusione esteriore, ma la purificazione della forza vitale che risiede nella colonna vertebrale e risveglia le cellule al loro potenziale originario.\"",
+        home_blessing_author: "&mdash; Acharya Mohan &bull; Parvati Scuola di Yoga",
+        doc_title: "Kayakalpa Yoga & Parvati Scuola di Yoga | Sorengo - Lugano & India",
+        menu_aria: "Apri Menu",
+        booking_info_email_label: "Email",
+        loc_addr_val: "Via Ponte Tresa 7B, 6924 Sorengo (Lugano), Svizzera",
+        loc_contact_details: "WhatsApp / Mob: <a href=\"https://wa.me/41794683258\" class=\"text-emerald-600 font-bold hover:underline\">+41 79 468 32 58</a> &bull; Tel: <a href=\"tel:+41919945068\" class=\"hover:underline\">+41 91 994 50 68</a><br />Email: <a href=\"mailto:kayakalpayogam@gmail.com\" class=\"hover:text-saffron transition underline decoration-sandstone underline-offset-2\">kayakalpayogam@gmail.com</a>",
+        loc_btn_wa: "WhatsApp Studio (+41 79 468 32 58)",
+        footer_contact_wa: "WhatsApp Studio:",
+        footer_contact_phone: "Telefono Studio:",
+        footer_contact_email: "Email:",
+        alt_hero: "Meditazione Kayakalpa, 7 chakra ed energia vitale nella natura sacra",
+        alt_chakra: "I 7 Chakra e la risalita dell'energia vitale nello stile Kayakalpa Yoga",
+        alt_acharya: "Acharya Mohan in meditazione, guida spirituale di Kayakalpa Yoga",
+        alt_sanctuary: "Atmosfera sacra di meditazione a Parvati Scuola di Yoga Sorengo Lugano",
+        alt_lake: "Lago di Lugano e montagne del Canton Ticino",
+        alt_spine: "Decompressione della colonna vertebrale e allineamento bio-energetico",
+        alt_contact_sanctuary: "Santuario di meditazione sul lago"
       },
       en: {
         topbar_geo: "Switzerland 🇨🇭 (Sorengo - Lugano) &bull; India 🇮🇳 (Kerala)",
@@ -1953,8 +1973,11 @@
         ach_tag: "Living Authority",
         ach_link_geo: "Switzerland (Lugano) • India (Kerala & Himalayas)",
         ach_headline: "From Himalayan Caves and Rishikesh to Teaching in Switzerland",
+        ach_bio_title: "Over 40 Years of Unbroken Sadhana and Direct Transmission",
         ach_bio_1: "<strong>Acharya Mohan</strong> (Sooryanarayan Mohan) was born into the sacred soil of Kerala, immersed from childhood in traditional temple sciences and holy nature groves. Driven by an uncompromising quest for consciousness, he spent years in rigorous <em>tapasya</em> and silence in Himalayan caves, and taught at the prestigious <em>Yoga Vedanta Forest Academy</em> at Sivananda Ashram in Rishikesh.",
+        ach_bio_p1: "Born in the spiritual heart of South India into a lineage deeply steeped in Vedic and Siddha sciences, <strong>Acharya Mohan</strong> has dedicated his entire life to rigorous spiritual discipline, spinal purification, and the awakening of vital bio-energy. He completed long periods of solitary sadhana and tapasya in Kerala's sacred groves and high Himalayan caves.",
         ach_bio_2: "As a living authority on Kayakalpa and Maha Kundalini Yoga, Acharya does not teach vague theories: he transmits an exact physiological science acting directly upon cells. Alongside <strong>Yogini Daniela</strong> (graduated from Istituto Yoga Carlo Patrian Milan & trained in Rishikesh), he has guided <strong>Parvati Yoga School</strong> in Sorengo (Lugano) for many years, alternating teachings in Switzerland with residential retreats at Santhivanam Ashram in India.",
+        ach_bio_p2: "Contrary to the contemporary trend of reducing yoga to aerobic gymnastics or Western fitness trends, Acharya imparts authentic <strong>Kayakalpa Yoga</strong> per original Siddha canons: direct master-to-disciple transmission (<em>Guru-Shishya Parampara</em>) uniting subtle physiology, breath control, and vital life-force transmutation.",
         ach_quote: "\"We do not teach yoga for exterior acrobatic poses. We teach you how to sit with yourself in stillness, allow the cells to regenerate, and realize who you truly are before any thought arises.\"",
         ach_author: "— Acharya Mohan",
         ach_notice: "Lessons, private consultations and retreats guided by Acharya",
@@ -2096,7 +2119,24 @@
         portal_card_6_desc: "Request a free trial class in Sorengo or connect directly with our studio on WhatsApp.",
         portal_card_6_btn: "Contact the Studio &rarr;",
         home_blessing_title: "Message from the Acharya",
-        home_blessing_text: "\"True youthfulness is not an outward illusion, but the purification of the vital life force residing along the spine, awakening every cell to its primal potential.\""
+        home_blessing_text: "\"True youthfulness is not an outward illusion, but the purification of the vital life force residing along the spine, awakening every cell to its primal potential.\"",
+        home_blessing_author: "&mdash; Acharya Mohan &bull; Parvati Yoga School",
+        doc_title: "Kayakalpa Yoga & Parvati Yoga School | Sorengo - Lugano & India",
+        menu_aria: "Open Menu",
+        booking_info_email_label: "Email",
+        loc_addr_val: "Via Ponte Tresa 7B, 6924 Sorengo (Lugano), Switzerland",
+        loc_contact_details: "WhatsApp / Mobile: <a href=\"https://wa.me/41794683258\" class=\"text-emerald-600 font-bold hover:underline\">+41 79 468 32 58</a> &bull; Phone: <a href=\"tel:+41919945068\" class=\"hover:underline\">+41 91 994 50 68</a><br />Email: <a href=\"mailto:kayakalpayogam@gmail.com\" class=\"hover:text-saffron transition underline decoration-sandstone underline-offset-2\">kayakalpayogam@gmail.com</a>",
+        loc_btn_wa: "WhatsApp Studio (+41 79 468 32 58)",
+        footer_contact_wa: "WhatsApp Studio:",
+        footer_contact_phone: "Studio Phone:",
+        footer_contact_email: "Email:",
+        alt_hero: "Kayakalpa meditation, 7 chakras and vital energy in sacred nature",
+        alt_chakra: "The 7 Chakras and vital life-force ascent in Kayakalpa Yoga style",
+        alt_acharya: "Acharya Mohan in meditation, spiritual preceptor of Kayakalpa Yoga",
+        alt_sanctuary: "Sacred meditation atmosphere at Parvati Yoga School Sorengo Lugano",
+        alt_lake: "Lake Lugano and Alps of Canton Ticino",
+        alt_spine: "Spinal decompression and bio-energetic alignment",
+        alt_contact_sanctuary: "Lakeside meditation sanctuary"
       }
     };
 
@@ -2106,6 +2146,22 @@
       if (!translations[lang]) return;
       currentLang = lang;
       localStorage.setItem('kayakalpa_lang', lang);
+
+      // Set document HTML lang
+      document.documentElement.lang = lang;
+
+      // Set page Title
+      if (translations[lang].doc_title) {
+        document.title = translations[lang].doc_title;
+      }
+
+      // Update meta description
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.content = lang === 'it'
+          ? "Sito ufficiale di Kayakalpa Yoga guidato dall'Acharya Mohan. Lezioni a Parvati Scuola di Yoga a Sorengo-Lugano e ritiri in India."
+          : "Official website of Kayakalpa Yoga guided by Acharya Mohan. Classes at Parvati Yoga School in Sorengo-Lugano and retreats in India.";
+      }
 
       // Button styles
       const btnIt = document.getElementById('lang-btn-it');
@@ -2126,10 +2182,26 @@
         }
       });
 
-      // Update Form Options dynamically
+      // Translate all data-i18n-alt elements
+      document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        const key = el.getAttribute('data-i18n-alt');
+        if (translations[lang][key]) {
+          el.alt = translations[lang][key];
+        }
+      });
+
+      // Translate all data-i18n-aria elements
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.getAttribute('data-i18n-aria');
+        if (translations[lang][key]) {
+          el.setAttribute('aria-label', translations[lang][key]);
+        }
+      });
+
+      // Update Form Options dynamically preserving selected index
       const courseSelect = document.getElementById('form-course');
       if (courseSelect && courseOptions[lang]) {
-        const prevSelected = courseSelect.value;
+        const prevIndex = courseSelect.selectedIndex >= 0 ? courseSelect.selectedIndex : 0;
         courseSelect.innerHTML = '';
         courseOptions[lang].forEach(optData => {
           const opt = document.createElement('option');
@@ -2137,6 +2209,9 @@
           opt.textContent = optData.text;
           courseSelect.appendChild(opt);
         });
+        if (courseSelect.options.length > prevIndex) {
+          courseSelect.selectedIndex = prevIndex;
+        }
       }
 
       // Update Form Placeholders
@@ -2148,7 +2223,17 @@
         if (nameInput) nameInput.placeholder = placeholders[lang].name;
         if (phoneInput) phoneInput.placeholder = placeholders[lang].phone;
         if (emailInput) emailInput.placeholder = placeholders[lang].email;
-        if (notesInput) notesInput.placeholder = placeholders[lang].notes;
+        if (notesInput) {
+          notesInput.placeholder = placeholders[lang].notes;
+          // Adapt pre-filled course notes between languages
+          if (notesInput.value.startsWith("Interesse specifico per: ") && lang === 'en') {
+            const currentTitle = courseSelect && courseSelect.value ? courseSelect.value : "";
+            notesInput.value = "Specific interest for: " + currentTitle;
+          } else if (notesInput.value.startsWith("Specific interest for: ") && lang === 'it') {
+            const currentTitle = courseSelect && courseSelect.value ? courseSelect.value : "";
+            notesInput.value = "Interesse specifico per: " + currentTitle;
+          }
+        }
       }
 
       // Update topbar WA message
