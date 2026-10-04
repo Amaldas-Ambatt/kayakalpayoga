@@ -13,15 +13,22 @@
   <meta property="og:url" content="https://kayakalpayogam.com" />
   <meta property="og:title" content="Kayakalpa Yoga | Teachings of Acharya in Lugano &amp; India" />
   <meta property="og:description" content="The excellence of Kayakalpa Yoga guided by Acharya Sooryanarayan. Classes at Parvati Yoga School in Sorengo-Lugano and retreats in India." />
-
-    <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://kayakalpayogam.com/kayakalpa-hero.jpg" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="it_CH" />
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kayakalpa Yoga | Sorengo-Lugano &amp; India" />
+  <meta name="twitter:description" content="Authentic Kayakalpa Yoga, cellular rejuvenation, and inner peace guided by Acharya Sooryanarayan." />
+  <meta name="twitter:image" content="https://kayakalpayogam.com/kayakalpa-hero.jpg" />
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CSS CDN with Cosmic Prana & 7-Chakra Jewel Palette -->
+  <!-- Tailwind CSS CDN with Cosmic Prana & Jewel Palette -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -52,11 +59,6 @@
               DEFAULT: '#0284C7',
               light: '#38BDF8',
               dark: '#0369A1'
-            },
-            jade: {
-              DEFAULT: '#059669',
-              light: '#34D399',
-              dark: '#047857'
             },
             solarGold: {
               DEFAULT: '#F59E0B',
@@ -124,12 +126,39 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #EA580C;
     }
-    .page-view {
-      animation: fadeInView 0.25s ease-out forwards;
+
+    /* Tapestry continuous motion marquee */
+    @keyframes smoothMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
-    @keyframes fadeInView {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
+    .motion-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: smoothMarquee 48s linear infinite;
+    }
+    .motion-marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Ken Burns Ambient Motion */
+    @keyframes kenBurnsSlow {
+      0% { transform: scale(1.0) translate(0%, 0%); }
+      50% { transform: scale(1.06) translate(-1%, -0.8%); }
+      100% { transform: scale(1.0) translate(0%, 0%); }
+    }
+    .ken-burns-hero {
+      animation: kenBurnsSlow 30s ease-in-out infinite alternate;
+    }
+
+    /* Tapestry Ribbon and Gold Line */
+    .tapestry-gold-strip {
+      background: linear-gradient(90deg, transparent 0%, #F59E0B 25%, #FDE68A 50%, #EA580C 75%, transparent 100%);
+    }
+
+    /* Scroll offset for sticky navigation */
+    section {
+      scroll-margin-top: 5rem;
     }
   </style>
 </head>
@@ -166,7 +195,7 @@
       <div class="flex items-center justify-between h-20">
         
         <!-- Brand Logo -->
-        <a href="#home" onclick="navigateTo('home'); return false;" class="flex items-center space-x-3 group">
+        <a href="#hero" onclick="scrollToSection('hero'); return false;" class="flex items-center space-x-3 group">
           <div class="w-12 h-12 rounded-full bg-cosmic border-2 border-solarGold/80 flex items-center justify-center text-solarGold shadow-md group-hover:scale-105 transition-transform duration-300">
             <svg class="w-7 h-7 fill-current text-solarGold-light" viewBox="0 0 24 24">
               <path d="M12 2C11.5 5 9.5 7.5 7 9c2 1 4 3.5 4 6.5 0-3 2-5.5 4-6.5-2.5-1.5-4.5-4-3-6.5zM12 22c-5.5 0-10-3-10-6.5 3.5 0 7-1.5 8.5-4C11 13 12 15 12 17c0-2 1-4 1.5-5.5 1.5 2.5 5 4 8.5 4 0 3.5-4.5 6.5-10 6.5z"/>
@@ -180,20 +209,20 @@
           </div>
         </a>
 
-        <!-- Desktop Navigation Links -->
+        <!-- Desktop Navigation Links (Smooth Tapestry Anchor Links) -->
         <nav class="hidden lg:flex items-center space-x-5 text-sm font-medium text-charcoal" id="desktop-nav">
-          <a href="#home" onclick="navigateTo('home'); return false;" class="nav-tab text-saffron font-bold border-b-2 border-saffron py-1.5 transition-all" data-nav="home" data-i18n="nav_home">Home</a>
-          <a href="#lo-stile" onclick="navigateTo('lo-stile'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="lo-stile" data-i18n="nav_style">The Kayakalpa Style</a>
-          <a href="#acharya" onclick="navigateTo('acharya'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="acharya" data-i18n="nav_acharya">The Acharya (Authority)</a>
-          <a href="#lugano-india" onclick="navigateTo('lugano-india'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="lugano-india" data-i18n="nav_dual">Lugano & India</a>
-          <a href="#scuola" onclick="navigateTo('scuola'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="scuola" data-i18n="nav_scuola">Parvati Yoga School</a>
-          <a href="#corsi" onclick="navigateTo('corsi'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="corsi" data-i18n="nav_corsi">Classes & Practice</a>
-          <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="contatti" data-i18n="nav_contatti">Contact & Studio</a>
+          <a href="#hero" onclick="scrollToSection('hero'); return false;" class="nav-tab text-saffron font-bold border-b-2 border-saffron py-1.5 transition-all" data-nav="hero" data-i18n="nav_home">Home</a>
+          <a href="#lo-stile" onclick="scrollToSection('lo-stile'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="lo-stile" data-i18n="nav_style">The Kayakalpa Style</a>
+          <a href="#acharya" onclick="scrollToSection('acharya'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="acharya" data-i18n="nav_acharya">The Acharya (Authority)</a>
+          <a href="#lugano-india" onclick="scrollToSection('lugano-india'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="lugano-india" data-i18n="nav_dual">Lugano & India</a>
+          <a href="#scuola" onclick="scrollToSection('scuola'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="scuola" data-i18n="nav_scuola">Parvati Yoga School</a>
+          <a href="#corsi" onclick="scrollToSection('corsi'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="corsi" data-i18n="nav_corsi">Classes & Practice</a>
+          <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="contatti" data-i18n="nav_contatti">Contact & Studio</a>
         </nav>
 
         <!-- CTA & Mobile Menu Toggle Button -->
         <div class="flex items-center space-x-3">
-          <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white font-medium text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white font-medium text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
             <span data-i18n="nav_cta">Inquire or Book Trial</span>
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </a>
@@ -211,36 +240,40 @@
 
     <!-- Mobile Drawer Menu -->
     <div id="mobile-menu" class="hidden lg:hidden border-t border-sandstone/60 bg-ivory px-6 py-5 space-y-3 shadow-xl">
-      <a href="#home" onclick="navigateTo('home'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 text-saffron font-bold" data-nav="home" data-i18n="nav_home">Home</a>
-      <a href="#lo-stile" onclick="navigateTo('lo-stile'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="lo-stile" data-i18n="nav_style">The Kayakalpa Style</a>
-      <a href="#acharya" onclick="navigateTo('acharya'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="acharya" data-i18n="nav_acharya">The Acharya (Authority)</a>
-      <a href="#lugano-india" onclick="navigateTo('lugano-india'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="lugano-india" data-i18n="nav_dual">Lugano & India</a>
-      <a href="#scuola" onclick="navigateTo('scuola'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="scuola" data-i18n="nav_scuola">Parvati Yoga School</a>
-      <a href="#corsi" onclick="navigateTo('corsi'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="corsi" data-i18n="nav_corsi">Classes & Practice</a>
-      <a href="#contatti" onclick="navigateTo('contatti'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 hover:text-saffron transition font-medium" data-nav="contatti" data-i18n="nav_contatti">Contact & Studio</a>
+      <a href="#hero" onclick="scrollToSection('hero'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 text-saffron font-bold" data-nav="hero" data-i18n="nav_home">Home</a>
+      <a href="#lo-stile" onclick="scrollToSection('lo-stile'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="lo-stile" data-i18n="nav_style">The Kayakalpa Style</a>
+      <a href="#acharya" onclick="scrollToSection('acharya'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="acharya" data-i18n="nav_acharya">The Acharya (Authority)</a>
+      <a href="#lugano-india" onclick="scrollToSection('lugano-india'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="lugano-india" data-i18n="nav_dual">Lugano & India</a>
+      <a href="#scuola" onclick="scrollToSection('scuola'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="scuola" data-i18n="nav_scuola">Parvati Yoga School</a>
+      <a href="#corsi" onclick="scrollToSection('corsi'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="corsi" data-i18n="nav_corsi">Classes & Practice</a>
+      <a href="#contatti" onclick="scrollToSection('contatti'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 hover:text-saffron transition font-medium" data-nav="contatti" data-i18n="nav_contatti">Contact & Studio</a>
       
       <div class="pt-2">
-        <a href="#contatti" onclick="navigateTo('contatti'); toggleMobileMenu(); return false;" class="w-full text-center block px-6 py-3 rounded-full bg-gradient-to-r from-saffron to-ruby text-white font-medium text-xs uppercase tracking-wider shadow">
+        <a href="#contatti" onclick="scrollToSection('contatti'); toggleMobileMenu(); return false;" class="w-full text-center block px-6 py-3 rounded-full bg-gradient-to-r from-saffron to-ruby text-white font-medium text-xs uppercase tracking-wider shadow">
           <span data-i18n="nav_cta">Inquire or Book Trial</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- ==================== VIEW 0: HOME / PORTAL ==================== -->
-  <div id="view-home" class="page-view">
-    <!-- ==================== HERO SECTION: COSMIC SAPPHIRE & JEWEL AURA ==================== -->
-    <section id="hero" class="relative min-h-[90vh] flex items-center justify-center bg-cosmic-dark overflow-hidden py-24">
-      <!-- Atmospheric Ambient Background in Reference Spiritual Style -->
-      <div class="absolute inset-0 z-0">
+  <!-- ==================== MAIN CONTINUOUS TAPESTRY WRAPPER ==================== -->
+  <main class="relative">
+
+    <!-- ==================== CHAPTER 1: HERO COVER SECTION ==================== -->
+    <section id="hero" class="relative min-h-[92vh] flex items-center justify-center bg-cosmic-dark overflow-hidden py-24">
+      <!-- Ken Burns Slow Ambient Visual Background -->
+      <div class="absolute inset-0 z-0 overflow-hidden">
         <img 
           src="kayakalpa-hero.jpg" 
           alt="Kayakalpa meditation, 7 chakras and vital energy in sacred nature" 
-          data-i18n-alt="Kayakalpa meditation, 7 chakras and vital energy in sacred nature"
-          class="w-full h-full object-cover opacity-35 scale-105"
+          data-i18n-alt="alt_hero"
+          class="w-full h-full object-cover opacity-35 scale-105 ken-burns-hero"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep via-cosmic/90 to-cosmic-dark/75"></div>
       </div>
+
+      <!-- Gold Top Ribbon Line -->
+      <div class="absolute top-0 left-0 right-0 h-1 tapestry-gold-strip z-10"></div>
 
       <!-- Subtle Sacred Chakra Prana Circles -->
       <div class="absolute w-[600px] h-[600px] rounded-full border border-amethyst/20 -top-40 -right-40 pointer-events-none animate-pulse"></div>
@@ -266,11 +299,11 @@
 
         <!-- Primary Action Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 mb-14">
-          <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white font-medium text-sm tracking-wider uppercase transition-all duration-300 shadow-xl hover:shadow-saffron/40 hover:-translate-y-0.5 text-center flex items-center justify-center gap-2">
+          <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white font-medium text-sm tracking-wider uppercase transition-all duration-300 shadow-xl hover:shadow-saffron/40 hover:-translate-y-0.5 text-center flex items-center justify-center gap-2">
             <span data-i18n="hero_btn_trial">Request Trial Class or Info</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
-          <a href="#lo-stile" onclick="navigateTo('lo-stile'); return false;" class="w-full sm:w-auto px-8 py-4 rounded-full bg-cosmic-surface/60 hover:bg-cosmic-surface text-ivory border border-solarGold/50 font-medium text-sm tracking-wider uppercase transition-all duration-300 text-center flex items-center justify-center gap-2 backdrop-blur-sm">
+          <a href="#lo-stile" onclick="scrollToSection('lo-stile'); return false;" class="w-full sm:w-auto px-8 py-4 rounded-full bg-cosmic-surface/60 hover:bg-cosmic-surface text-ivory border border-solarGold/50 font-medium text-sm tracking-wider uppercase transition-all duration-300 text-center flex items-center justify-center gap-2 backdrop-blur-sm">
             <span data-i18n="hero_btn_discover">Discover the Style & Method</span>
           </a>
         </div>
@@ -298,7 +331,138 @@
       </div>
     </section>
 
-    <!-- ==================== HOME PORTAL CARDS: 6 PATHWAYS ==================== -->
+    <!-- ==================== CONTINUOUS MOTION TAPESTRY MARQUEE (Visual Journey) ==================== -->
+    <section class="bg-cosmic-deep py-6 border-y border-solarGold/30 overflow-hidden relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-solarGold animate-ping"></span>
+          <span class="text-xs uppercase tracking-[0.25em] text-solarGold-light font-semibold" data-i18n="marquee_badge">Living Tapestry of Kayakalpa</span>
+        </div>
+        <span class="text-[11px] text-ivory/60 italic" data-i18n="marquee_hint">Click any perspective to explore in full detail</span>
+      </div>
+
+      <div class="motion-marquee-track flex gap-4 sm:gap-6">
+        
+        <!-- Perspective 1: Chakras & Subtle Physiology -->
+        <div onclick="openLightboxBySrc('kayakalpa-chakras.jpg', 'Sushumna Nadi & The 7 Chakras', 'Subtle Siddha bio-energy ascension and awakening.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="kayakalpa-chakras.jpg" alt="7 Chakras and Pranic Energy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Sushumna Nadi & 7 Chakras</p>
+            <p class="text-ivory/75 text-[11px]">Ancient Siddha Physiology</p>
+          </div>
+        </div>
+
+        <!-- Perspective 2: Master Acharya Sooryanarayan -->
+        <div onclick="openLightboxBySrc('acharya-portrait.jpg', 'Acharya Sooryanarayan', 'Spiritual preceptor with over 40 years of sadhana.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="acharya-portrait.jpg" alt="Acharya Sooryanarayan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Acharya Sooryanarayan</p>
+            <p class="text-ivory/75 text-[11px]">Living Spiritual Authority</p>
+          </div>
+        </div>
+
+        <!-- Perspective 3: Spinal Alignment -->
+        <div onclick="openLightboxBySrc('kayakalpa-spine.jpg', 'Spinal Decompression & Vital Ojas', 'The anatomical axis of rejuvenation and energy sublimation.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="kayakalpa-spine.jpg" alt="Spinal Health" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Spinal Rejuvenation</p>
+            <p class="text-ivory/75 text-[11px]">Transmutation of Vital Ojas</p>
+          </div>
+        </div>
+
+        <!-- Perspective 4: Parvati Sanctuary Sorengo -->
+        <div onclick="openLightboxBySrc('kayakalpa-sanctuary.jpg', 'Parvati Yoga Sanctuary', 'The serene sacred studio in Sorengo-Lugano, Canton Ticino.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="kayakalpa-sanctuary.jpg" alt="Parvati Yoga School Sanctuary" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Parvati Yoga Sanctuary</p>
+            <p class="text-ivory/75 text-[11px]">Sorengo (Lugano), Switzerland</p>
+          </div>
+        </div>
+
+        <!-- Perspective 5: Santhivanam Ashram Villa Kerala -->
+        <div onclick="openLightboxBySrc('ashram-cover.jpg', 'Santhivanam Ashram Villa', 'Traditional residence nestled in the foothills of Kanakamala, Kerala.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="ashram-cover.jpg" alt="Santhivanam Ashram Kerala" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Santhivanam Ashram Villa</p>
+            <p class="text-ivory/75 text-[11px]">Kanakamala Foothills, Kerala</p>
+          </div>
+        </div>
+
+        <!-- Perspective 6: Nagakalam Sacred Geometry -->
+        <div onclick="openLightboxBySrc('ashram-mandala.jpg', 'Nagakalam Sacred Mandala', 'Traditional sacred geometrical floor mandala with lamps.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="ashram-mandala.jpg" alt="Sacred Mandala" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Nagakalam Mandala</p>
+            <p class="text-ivory/75 text-[11px]">Tantric Sacred Geometry</p>
+          </div>
+        </div>
+
+        <!-- Perspective 7: Meditative Pathway -->
+        <div onclick="openLightboxBySrc('ashram-pathway.jpg', 'The Meditative Pathway', 'Dawn silent walking meditation trails in the sacred grove.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="ashram-pathway.jpg" alt="Ashram Pathway" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">The Meditative Pathway</p>
+            <p class="text-ivory/75 text-[11px]">Dawn Chankramana</p>
+          </div>
+        </div>
+
+        <!-- DUPLICATE SET FOR SEAMLESS 100% INFINITE LOOP -->
+        <div onclick="openLightboxBySrc('kayakalpa-chakras.jpg', 'Sushumna Nadi & The 7 Chakras', 'Subtle Siddha bio-energy ascension and awakening.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="kayakalpa-chakras.jpg" alt="7 Chakras" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Sushumna Nadi & 7 Chakras</p>
+            <p class="text-ivory/75 text-[11px]">Ancient Siddha Physiology</p>
+          </div>
+        </div>
+
+        <div onclick="openLightboxBySrc('acharya-portrait.jpg', 'Acharya Sooryanarayan', 'Spiritual preceptor with over 40 years of sadhana.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="acharya-portrait.jpg" alt="Acharya Sooryanarayan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Acharya Sooryanarayan</p>
+            <p class="text-ivory/75 text-[11px]">Living Spiritual Authority</p>
+          </div>
+        </div>
+
+        <div onclick="openLightboxBySrc('kayakalpa-spine.jpg', 'Spinal Decompression & Vital Ojas', 'The anatomical axis of rejuvenation and energy sublimation.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="kayakalpa-spine.jpg" alt="Spinal Health" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Spinal Rejuvenation</p>
+            <p class="text-ivory/75 text-[11px]">Transmutation of Vital Ojas</p>
+          </div>
+        </div>
+
+        <div onclick="openLightboxBySrc('kayakalpa-sanctuary.jpg', 'Parvati Yoga Sanctuary', 'The serene sacred studio in Sorengo-Lugano, Canton Ticino.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="kayakalpa-sanctuary.jpg" alt="Parvati Yoga School" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Parvati Yoga Sanctuary</p>
+            <p class="text-ivory/75 text-[11px]">Sorengo (Lugano), Switzerland</p>
+          </div>
+        </div>
+
+        <div onclick="openLightboxBySrc('ashram-cover.jpg', 'Santhivanam Ashram Villa', 'Traditional residence nestled in the foothills of Kanakamala, Kerala.')" class="relative w-64 sm:w-80 h-48 rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 group border border-solarGold/30 hover:border-solarGold shadow-lg transition-transform duration-300 hover:scale-[1.03]">
+          <img src="ashram-cover.jpg" alt="Santhivanam Ashram Kerala" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-cosmic/30 to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-ivory text-xs font-serif">
+            <p class="text-solarGold-light font-bold text-sm">Santhivanam Ashram Villa</p>
+            <p class="text-ivory/75 text-[11px]">Kanakamala Foothills, Kerala</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== TAPESTRY GATEWAYS OVERVIEW ==================== -->
     <section class="py-20 bg-ivory relative border-b border-sandstone/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -320,7 +484,7 @@
               <h3 class="font-serif text-xl font-bold text-cosmic mb-2 group-hover:text-saffron transition-colors" data-i18n="portal_card_1_title">The Kayakalpa Style</h3>
               <p class="text-xs sm:text-sm text-charcoal/75 leading-relaxed mb-6" data-i18n="portal_card_1_desc">Millenary Siddha alchemy: spinal rejuvenation, cellular vitality, and 7-chakra balance.</p>
             </div>
-            <a href="#lo-stile" onclick="navigateTo('lo-stile'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
+            <a href="#lo-stile" onclick="scrollToSection('lo-stile'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
               <span data-i18n="portal_card_1_btn">Enter the Style &rarr;</span>
             </a>
           </div>
@@ -334,7 +498,7 @@
               <h3 class="font-serif text-xl font-bold text-cosmic mb-2 group-hover:text-saffron transition-colors" data-i18n="portal_card_2_title">Acharya Sooryanarayan</h3>
               <p class="text-xs sm:text-sm text-charcoal/75 leading-relaxed mb-6" data-i18n="portal_card_2_desc">Living spiritual authority with over 40 years of sadhana and direct master-to-disciple lineage.</p>
             </div>
-            <a href="#acharya" onclick="navigateTo('acharya'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
+            <a href="#acharya" onclick="scrollToSection('acharya'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
               <span data-i18n="portal_card_2_btn">Meet the Acharya &rarr;</span>
             </a>
           </div>
@@ -348,7 +512,7 @@
               <h3 class="font-serif text-xl font-bold text-cosmic mb-2 group-hover:text-saffron transition-colors" data-i18n="portal_card_3_title">Two Living Sanctuaries</h3>
               <p class="text-xs sm:text-sm text-charcoal/75 leading-relaxed mb-6" data-i18n="portal_card_3_desc">The sacred bridge connecting Sorengo-Lugano (Switzerland) and Santhivanam Ashram (Kerala, India).</p>
             </div>
-            <a href="#lugano-india" onclick="navigateTo('lugano-india'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
+            <a href="#lugano-india" onclick="scrollToSection('lugano-india'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
               <span data-i18n="portal_card_3_btn">Discover Sanctuaries &rarr;</span>
             </a>
           </div>
@@ -362,7 +526,7 @@
               <h3 class="font-serif text-xl font-bold text-cosmic mb-2 group-hover:text-saffron transition-colors" data-i18n="portal_card_4_title">Parvati Yoga School</h3>
               <p class="text-xs sm:text-sm text-charcoal/75 leading-relaxed mb-6" data-i18n="portal_card_4_desc">The historic studio in Sorengo (Canton Ticino): stillness, sacred focus, and individualized guidance.</p>
             </div>
-            <a href="#scuola" onclick="navigateTo('scuola'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
+            <a href="#scuola" onclick="scrollToSection('scuola'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
               <span data-i18n="portal_card_4_btn">Visit the School &rarr;</span>
             </a>
           </div>
@@ -376,7 +540,7 @@
               <h3 class="font-serif text-xl font-bold text-cosmic mb-2 group-hover:text-saffron transition-colors" data-i18n="portal_card_5_title">Courses & Practice</h3>
               <p class="text-xs sm:text-sm text-charcoal/75 leading-relaxed mb-6" data-i18n="portal_card_5_desc">Beginner courses, spinal regeneration, maha kundalini, and residential retreats in India.</p>
             </div>
-            <a href="#corsi" onclick="navigateTo('corsi'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
+            <a href="#corsi" onclick="scrollToSection('corsi'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
               <span data-i18n="portal_card_5_btn">View Courses & Schedule &rarr;</span>
             </a>
           </div>
@@ -390,7 +554,7 @@
               <h3 class="font-serif text-xl font-bold text-cosmic mb-2 group-hover:text-saffron transition-colors" data-i18n="portal_card_6_title">Contact & Booking</h3>
               <p class="text-xs sm:text-sm text-charcoal/75 leading-relaxed mb-6" data-i18n="portal_card_6_desc">Request a free trial class in Sorengo or connect directly with our studio on WhatsApp.</p>
             </div>
-            <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
+            <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="inline-flex items-center gap-2 text-xs font-bold text-saffron hover:text-saffron-dark uppercase tracking-wider">
               <span data-i18n="portal_card_6_btn">Contact the Studio &rarr;</span>
             </a>
           </div>
@@ -408,30 +572,11 @@
 
       </div>
     </section>
-  </div>
 
-  <!-- ==================== VIEW 1: LO STILE KAYAKALPA ==================== -->
-  <div id="view-lo-stile" class="page-view hidden">
-    <!-- View Header Banner -->
-    <div class="bg-cosmic text-ivory py-8 border-b border-solarGold/30">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <div class="flex items-center space-x-2 text-xs text-solarGold-light mb-1">
-            <a href="#home" onclick="navigateTo('home'); return false;" class="hover:underline flex items-center gap-1">
-              <span>&larr;</span> <span data-i18n="bc_home">Home</span>
-            </a>
-            <span>/</span>
-            <span class="text-ivory/70" data-i18n="nav_style">The Kayakalpa Style</span>
-          </div>
-          <h1 class="font-serif text-2xl sm:text-3xl text-ivory font-normal" data-i18n="banner_style_title">The Kayakalpa Style: Cellular Rejuvenation</h1>
-        </div>
-        <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-5 py-2 rounded-full bg-gradient-to-r from-saffron to-ruby text-white text-xs font-medium uppercase tracking-wider shadow hover:opacity-95 transition">
-          <span data-i18n="nav_cta">Inquire or Book Trial</span>
-        </a>
-      </div>
-    </div>
+    <!-- Tapestry Accent Gold Divider -->
+    <div class="h-0.5 tapestry-gold-strip"></div>
 
-    <!-- ==================== THE YOGA STYLE: WHAT SETS KAYAKALPA APART ==================== -->
+    <!-- ==================== CHAPTER 2: THE YOGA STYLE (CELLULAR REJUVENATION) ==================== -->
     <section id="lo-stile" class="py-24 bg-ivoryLight relative overflow-hidden border-b border-sandstone/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -452,11 +597,11 @@
             
             <!-- Chakra Image Column -->
             <div class="lg:col-span-5 relative">
-              <div class="rounded-2xl overflow-hidden border-2 border-solarGold/60 shadow-2xl relative group bg-cosmic-deep">
+              <div class="rounded-2xl overflow-hidden border-2 border-solarGold/60 shadow-2xl relative group bg-cosmic-deep cursor-pointer" onclick="openLightboxBySrc('kayakalpa-chakras.jpg', 'Sushumna Nadi & The 7 Chakras', 'Subtle Siddha bio-energy ascension and awakening.')">
                 <img 
-                  src="kayakalpa-hero.jpg" 
+                  src="kayakalpa-chakras.jpg" 
                   alt="The 7 Chakras and vital life-force ascent in Kayakalpa Yoga style" 
-                  data-i18n-alt="The 7 Chakras and vital life-force ascent in Kayakalpa Yoga style"
+                  data-i18n-alt="alt_chakra"
                   class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div class="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-cosmic-deep/90 backdrop-blur-md border border-solarGold/40 text-center text-xs">
@@ -475,10 +620,10 @@
               <p class="text-ivory/80 text-sm sm:text-base leading-relaxed font-light" data-i18n="style_feat_desc_1">While Western fitness yoga stimulates only surface muscles and dissipates energy, the <strong>Kayakalpa style</strong> addresses the biological roots of aging. It applies an exact synergy of <em>Bandhas</em> (pelvic and throat energetic locks), cellular breathwork, and gentle inversions to channel essential vital force (<em>Sukra</em>) upward along the spine into higher centers.</p>
               <p class="text-ivory/80 text-sm sm:text-base leading-relaxed font-light" data-i18n="style_feat_desc_2">Once learned with precision from the teacher, students gain an invaluable lifetime tool: a self-sufficient practice requiring just <strong>10 minutes a day</strong> at home each morning. Free from acrobatic strain or joint risks: a sadhana suitable for any age and physical condition.</p>
               <div class="pt-2 flex flex-wrap gap-4">
-                <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-solarGold to-saffron hover:from-solarGold-dark hover:to-saffron-dark text-cosmic-deep font-bold text-xs uppercase tracking-wider transition shadow-lg">
+                <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-solarGold to-saffron hover:from-solarGold-dark hover:to-saffron-dark text-cosmic-deep font-bold text-xs uppercase tracking-wider transition shadow-lg">
                   <span data-i18n="style_btn_trial">Inquire in Sorengo</span>
                 </a>
-                <a href="#corsi" onclick="navigateTo('corsi'); return false;" class="px-7 py-3.5 rounded-full bg-cosmic-surface hover:bg-sapphire text-ivory border border-solarGold/40 font-semibold text-xs uppercase tracking-wider transition">
+                <a href="#corsi" onclick="scrollToSection('corsi'); return false;" class="px-7 py-3.5 rounded-full bg-cosmic-surface hover:bg-sapphire text-ivory border border-solarGold/40 font-semibold text-xs uppercase tracking-wider transition">
                   <span data-i18n="style_btn_courses">Study Programs</span>
                 </a>
               </div>
@@ -523,41 +668,10 @@
       </div>
     </section>
 
-    <!-- Bottom Chapter Bar -->
-    <div class="bg-ivoryLight py-10 border-t border-sandstone/60">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <a href="#home" onclick="navigateTo('home'); return false;" class="text-xs text-charcoal/70 hover:text-saffron font-medium flex items-center gap-1.5 transition">
-          <span>&larr;</span> <span data-i18n="nav_back_home">Back to Home</span>
-        </a>
-        <a href="#acharya" onclick="navigateTo('acharya'); return false;" class="px-6 py-3 rounded-full bg-cosmic text-solarGold-light hover:text-white border border-solarGold/40 text-xs font-semibold uppercase tracking-wider shadow flex items-center gap-2 hover:bg-cosmic-dark transition">
-          <span data-i18n="next_chapter_prefix">Next Chapter:</span> <span data-i18n="nav_acharya">The Acharya (Authority)</span> <span>&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </div>
+    <!-- Tapestry Accent Gold Divider -->
+    <div class="h-0.5 tapestry-gold-strip"></div>
 
-  <!-- ==================== VIEW 2: L'ACHARYA SOORYANARAYAN ==================== -->
-  <div id="view-acharya" class="page-view hidden">
-    <!-- View Header Banner -->
-    <div class="bg-cosmic text-ivory py-8 border-b border-solarGold/30">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <div class="flex items-center space-x-2 text-xs text-solarGold-light mb-1">
-            <a href="#home" onclick="navigateTo('home'); return false;" class="hover:underline flex items-center gap-1">
-              <span>&larr;</span> <span data-i18n="bc_home">Home</span>
-            </a>
-            <span>/</span>
-            <span class="text-ivory/70" data-i18n="nav_acharya">The Acharya (Authority)</span>
-          </div>
-          <h1 class="font-serif text-2xl sm:text-3xl text-ivory font-normal" data-i18n="banner_ach_title">Acharya Sooryanarayan: Living Spiritual Authority</h1>
-        </div>
-        <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-5 py-2 rounded-full bg-gradient-to-r from-saffron to-ruby text-white text-xs font-medium uppercase tracking-wider shadow hover:opacity-95 transition">
-          <span data-i18n="nav_cta">Inquire or Book Trial</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ==================== THE AUTHORITY: ACHARYA SOORYANARAYAN ==================== -->
+    <!-- ==================== CHAPTER 3: THE AUTHORITY (ACHARYA SOORYANARAYAN) ==================== -->
     <section id="acharya" class="py-24 bg-ivory relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -574,11 +688,11 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
             
             <!-- Image Column with Real Photo -->
-            <div class="lg:col-span-5 relative bg-cosmic min-h-[480px] lg:min-h-full">
+            <div class="lg:col-span-5 relative bg-cosmic min-h-[480px] lg:min-h-full cursor-pointer" onclick="openLightboxBySrc('acharya-portrait.jpg', 'Acharya Sooryanarayan in Meditation', 'Living spiritual preceptor of Kayakalpa Yoga.')">
               <img 
                 src="acharya-portrait.jpg" 
                 alt="Acharya Sooryanarayan in meditation, spiritual preceptor of Kayakalpa Yoga" 
-                data-i18n-alt="Acharya Sooryanarayan in meditation, spiritual preceptor of Kayakalpa Yoga"
+                data-i18n-alt="alt_acharya"
                 class="w-full h-full object-cover"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep via-transparent to-transparent lg:hidden"></div>
@@ -612,7 +726,7 @@
 
               <div class="pt-6 border-t border-sandstone/70 mt-6 flex flex-wrap items-center justify-between gap-4">
                 <span class="text-xs text-charcoal/60" data-i18n="ach_notice">Lessons, private consultations and retreats guided by Acharya</span>
-                <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="text-saffron hover:text-saffron-dark font-medium text-xs uppercase tracking-wider flex items-center gap-1">
+                <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="text-saffron hover:text-saffron-dark font-medium text-xs uppercase tracking-wider flex items-center gap-1">
                   <span data-i18n="ach_cta">Book Meeting with Acharya</span>
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </a>
@@ -626,41 +740,10 @@
       </div>
     </section>
 
-    <!-- Bottom Chapter Bar -->
-    <div class="bg-ivoryLight py-10 border-t border-sandstone/60">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <a href="#home" onclick="navigateTo('home'); return false;" class="text-xs text-charcoal/70 hover:text-saffron font-medium flex items-center gap-1.5 transition">
-          <span>&larr;</span> <span data-i18n="nav_back_home">Back to Home</span>
-        </a>
-        <a href="#lugano-india" onclick="navigateTo('lugano-india'); return false;" class="px-6 py-3 rounded-full bg-cosmic text-solarGold-light hover:text-white border border-solarGold/40 text-xs font-semibold uppercase tracking-wider shadow flex items-center gap-2 hover:bg-cosmic-dark transition">
-          <span data-i18n="next_chapter_prefix">Next Chapter:</span> <span data-i18n="nav_dual">Lugano & India</span> <span>&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </div>
+    <!-- Tapestry Accent Gold Divider -->
+    <div class="h-0.5 tapestry-gold-strip"></div>
 
-  <!-- ==================== VIEW 3: DUE SANTUARI (LUGANO & INDIA) ==================== -->
-  <div id="view-lugano-india" class="page-view hidden">
-    <!-- View Header Banner -->
-    <div class="bg-cosmic text-ivory py-8 border-b border-solarGold/30">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <div class="flex items-center space-x-2 text-xs text-solarGold-light mb-1">
-            <a href="#home" onclick="navigateTo('home'); return false;" class="hover:underline flex items-center gap-1">
-              <span>&larr;</span> <span data-i18n="bc_home">Home</span>
-            </a>
-            <span>/</span>
-            <span class="text-ivory/70" data-i18n="nav_dual">Lugano & India</span>
-          </div>
-          <h1 class="font-serif text-2xl sm:text-3xl text-ivory font-normal" data-i18n="banner_dual_title">Two Living Sanctuaries: Sorengo-Lugano & Kerala (India)</h1>
-        </div>
-        <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-5 py-2 rounded-full bg-gradient-to-r from-saffron to-ruby text-white text-xs font-medium uppercase tracking-wider shadow hover:opacity-95 transition">
-          <span data-i18n="nav_cta">Inquire or Book Trial</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ==================== DUAL PRESENCE: LESSONS IN LUGANO & INDIA ==================== -->
+    <!-- ==================== CHAPTER 4: DUAL SANCTUARIES (LUGANO & INDIA) ==================== -->
     <section id="lugano-india" class="py-24 bg-cosmic text-ivory relative overflow-hidden border-y border-solarGold/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -702,13 +785,13 @@
 
             <div class="pt-6 border-t border-solarGold/20 mt-6 flex justify-between items-center">
               <span class="text-xs text-solarGold-light font-medium" data-i18n="dual_lugano_loc">Via Ponte Tresa 7B, 6924 Sorengo</span>
-              <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-saffron to-ruby text-white text-xs font-semibold uppercase tracking-wider transition hover:brightness-110 shadow">
+              <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-saffron to-ruby text-white text-xs font-semibold uppercase tracking-wider transition hover:brightness-110 shadow">
                 <span data-i18n="dual_btn_lugano">Join in Sorengo</span>
               </a>
             </div>
           </div>
 
-          <!-- India Card -->
+          <!-- India Card with Authentic Santhivanam Photo -->
           <div class="bg-cosmic-surface rounded-3xl p-8 sm:p-10 border border-amethyst/30 shadow-xl flex flex-col justify-between relative overflow-hidden">
             <div class="space-y-4">
               <div class="flex justify-between items-center">
@@ -716,8 +799,17 @@
                 <span class="text-xs text-ivory/60 font-serif italic" data-i18n="dual_india_subtitle">Santhivanam Ashram</span>
               </div>
               <h3 class="font-serif text-2xl sm:text-3xl text-ivory font-normal" data-i18n="dual_india_title">Residential Retreats at Santhivanam Ashram</h3>
+              
+              <!-- Ashram Photo Visual Preview -->
+              <div class="rounded-xl overflow-hidden border border-solarGold/30 h-32 relative cursor-pointer group" onclick="openLightboxBySrc('ashram-cover.jpg', 'Santhivanam Ashram Kerala', 'Sacred residence for residential retreats in Kanakamala.')">
+                <img src="ashram-cover.jpg" alt="Santhivanam Ashram Kanakamala Kerala" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/90 via-transparent to-transparent flex items-end p-2.5">
+                  <span class="text-[11px] text-solarGold-light font-serif italic">Santhivanam Ashram &bull; Kanakamala Foothills, Kerala</span>
+                </div>
+              </div>
+
               <p class="text-ivory/80 text-sm leading-relaxed" data-i18n="dual_india_desc">For Parvati students desiring deep residential immersion in the land of origin:</p>
-              <ul class="text-xs sm:text-sm text-ivory/85 space-y-2.5">
+              <ul class="text-xs sm:text-sm text-ivory/85 space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-solarGold-light font-bold">&bull;</span>
                   <span data-i18n="dual_india_p1"><strong>Immersive Residential Sadhana</strong>: Intensive practice in the sacred nature of Kanakamala (Thrissur, Kerala).</span>
@@ -735,7 +827,7 @@
 
             <div class="pt-6 border-t border-solarGold/20 mt-6 flex justify-between items-center">
               <span class="text-xs text-solarGold-light font-medium" data-i18n="dual_india_loc">Kanakamala, Kerala • India</span>
-              <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-solarGold to-saffron text-cosmic-deep text-xs font-bold uppercase tracking-wider transition hover:brightness-110 shadow">
+              <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-solarGold to-saffron text-cosmic-deep text-xs font-bold uppercase tracking-wider transition hover:brightness-110 shadow">
                 <span data-i18n="dual_btn_india">India Retreat Info</span>
               </a>
             </div>
@@ -746,41 +838,10 @@
       </div>
     </section>
 
-    <!-- Bottom Chapter Bar -->
-    <div class="bg-ivoryLight py-10 border-t border-sandstone/60">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <a href="#home" onclick="navigateTo('home'); return false;" class="text-xs text-charcoal/70 hover:text-saffron font-medium flex items-center gap-1.5 transition">
-          <span>&larr;</span> <span data-i18n="nav_back_home">Back to Home</span>
-        </a>
-        <a href="#scuola" onclick="navigateTo('scuola'); return false;" class="px-6 py-3 rounded-full bg-cosmic text-solarGold-light hover:text-white border border-solarGold/40 text-xs font-semibold uppercase tracking-wider shadow flex items-center gap-2 hover:bg-cosmic-dark transition">
-          <span data-i18n="next_chapter_prefix">Next Chapter:</span> <span data-i18n="nav_scuola">Parvati Yoga School</span> <span>&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </div>
+    <!-- Tapestry Accent Gold Divider -->
+    <div class="h-0.5 tapestry-gold-strip"></div>
 
-  <!-- ==================== VIEW 4: PARVATI SCUOLA DI YOGA ==================== -->
-  <div id="view-scuola" class="page-view hidden">
-    <!-- View Header Banner -->
-    <div class="bg-cosmic text-ivory py-8 border-b border-solarGold/30">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <div class="flex items-center space-x-2 text-xs text-solarGold-light mb-1">
-            <a href="#home" onclick="navigateTo('home'); return false;" class="hover:underline flex items-center gap-1">
-              <span>&larr;</span> <span data-i18n="bc_home">Home</span>
-            </a>
-            <span>/</span>
-            <span class="text-ivory/70" data-i18n="nav_scuola">Parvati Yoga School</span>
-          </div>
-          <h1 class="font-serif text-2xl sm:text-3xl text-ivory font-normal" data-i18n="banner_scuola_title">Parvati Yoga School: The Sanctuary in Sorengo</h1>
-        </div>
-        <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-5 py-2 rounded-full bg-gradient-to-r from-saffron to-ruby text-white text-xs font-medium uppercase tracking-wider shadow hover:opacity-95 transition">
-          <span data-i18n="nav_cta">Inquire or Book Trial</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ==================== PARVATI SCUOLA DI YOGA ==================== -->
+    <!-- ==================== CHAPTER 5: PARVATI SCUOLA DI YOGA ==================== -->
     <section id="scuola" class="py-24 bg-ivoryLight relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -817,10 +878,10 @@
             </div>
 
             <div class="pt-4 flex flex-wrap gap-4">
-              <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-8 py-4 rounded-full bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white font-medium text-xs uppercase tracking-wider shadow-lg transition duration-200">
+              <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="px-8 py-4 rounded-full bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white font-medium text-xs uppercase tracking-wider shadow-lg transition duration-200">
                 <span data-i18n="scuola_cta_trial">Book a Trial or Inquire</span>
               </a>
-              <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-8 py-4 rounded-full bg-cosmic hover:bg-sapphire text-white font-medium text-xs uppercase tracking-wider transition duration-200">
+              <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="px-8 py-4 rounded-full bg-cosmic hover:bg-sapphire text-white font-medium text-xs uppercase tracking-wider transition duration-200">
                 <span data-i18n="scuola_cta_where">Our Sorengo-Lugano Studio</span>
               </a>
             </div>
@@ -828,11 +889,11 @@
 
           <!-- Right Visual Column: Sacred Sadhana Imagery -->
           <div class="lg:col-span-5 space-y-4">
-            <div class="rounded-2xl overflow-hidden border-2 border-solarGold/50 shadow-xl relative group bg-cosmic-deep">
+            <div class="rounded-2xl overflow-hidden border-2 border-solarGold/50 shadow-xl relative group bg-cosmic-deep cursor-pointer" onclick="openLightboxBySrc('kayakalpa-sanctuary.jpg', 'Parvati Yoga Sanctuary', 'The serene sacred studio in Sorengo-Lugano.')">
               <img 
                 src="kayakalpa-sanctuary.jpg" 
                 alt="Sacred meditation atmosphere at Parvati Yoga School Sorengo Lugano" 
-                data-i18n-alt="Sacred meditation atmosphere at Parvati Yoga School Sorengo Lugano"
+                data-i18n-alt="alt_sanctuary"
                 class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div class="absolute bottom-3 left-3 right-3 px-4 py-2 rounded-lg bg-cosmic-deep/90 backdrop-blur-md border border-solarGold/30 text-ivory text-xs flex justify-between items-center">
@@ -842,11 +903,11 @@
             </div>
 
             <div class="grid grid-cols-2 gap-4">
-              <div class="rounded-xl overflow-hidden border border-pranaCyan/30 shadow-md relative h-40 group bg-cosmic-deep">
+              <div class="rounded-xl overflow-hidden border border-pranaCyan/30 shadow-md relative h-40 group bg-cosmic-deep cursor-pointer" onclick="openLightboxBySrc('kayakalpa-hero.jpg', 'Lake Lugano & Alpine Foothills', 'The natural tranquility surrounding Sorengo.')">
                 <img 
                   src="kayakalpa-hero.jpg" 
                   alt="Lake Lugano and Alps of Canton Ticino" 
-                  data-i18n-alt="Lake Lugano and Alps of Canton Ticino"
+                  data-i18n-alt="alt_lake"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/80 via-transparent to-transparent flex items-end p-2.5">
@@ -854,11 +915,11 @@
                 </div>
               </div>
 
-              <div class="rounded-xl overflow-hidden border border-amethyst/30 shadow-md relative h-40 group bg-cosmic-deep">
+              <div class="rounded-xl overflow-hidden border border-amethyst/30 shadow-md relative h-40 group bg-cosmic-deep cursor-pointer" onclick="openLightboxBySrc('kayakalpa-spine.jpg', 'Spinal Decompression & Alignment', 'Restoring vital bio-energy along the spinal column.')">
                 <img 
                   src="kayakalpa-spine.jpg" 
                   alt="Spinal decompression and bio-energetic alignment" 
-                  data-i18n-alt="Spinal decompression and bio-energetic alignment"
+                  data-i18n-alt="alt_spine"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep/80 via-transparent to-transparent flex items-end p-2.5">
@@ -873,41 +934,10 @@
       </div>
     </section>
 
-    <!-- Bottom Chapter Bar -->
-    <div class="bg-ivoryLight py-10 border-t border-sandstone/60">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <a href="#home" onclick="navigateTo('home'); return false;" class="text-xs text-charcoal/70 hover:text-saffron font-medium flex items-center gap-1.5 transition">
-          <span>&larr;</span> <span data-i18n="nav_back_home">Back to Home</span>
-        </a>
-        <a href="#corsi" onclick="navigateTo('corsi'); return false;" class="px-6 py-3 rounded-full bg-cosmic text-solarGold-light hover:text-white border border-solarGold/40 text-xs font-semibold uppercase tracking-wider shadow flex items-center gap-2 hover:bg-cosmic-dark transition">
-          <span data-i18n="next_chapter_prefix">Next Chapter:</span> <span data-i18n="nav_corsi">Classes & Practice</span> <span>&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </div>
+    <!-- Tapestry Accent Gold Divider -->
+    <div class="h-0.5 tapestry-gold-strip"></div>
 
-  <!-- ==================== VIEW 5: CORSI & PRATICA ==================== -->
-  <div id="view-corsi" class="page-view hidden">
-    <!-- View Header Banner -->
-    <div class="bg-cosmic text-ivory py-8 border-b border-solarGold/30">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <div class="flex items-center space-x-2 text-xs text-solarGold-light mb-1">
-            <a href="#home" onclick="navigateTo('home'); return false;" class="hover:underline flex items-center gap-1">
-              <span>&larr;</span> <span data-i18n="bc_home">Home</span>
-            </a>
-            <span>/</span>
-            <span class="text-ivory/70" data-i18n="nav_corsi">Classes & Practice</span>
-          </div>
-          <h1 class="font-serif text-2xl sm:text-3xl text-ivory font-normal" data-i18n="banner_corsi_title">Courses, Schedules & Immersion Retreats</h1>
-        </div>
-        <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-5 py-2 rounded-full bg-gradient-to-r from-saffron to-ruby text-white text-xs font-medium uppercase tracking-wider shadow hover:opacity-95 transition">
-          <span data-i18n="nav_cta">Inquire or Book Trial</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ==================== COURSES & DISCIPLINES ==================== -->
+    <!-- ==================== CHAPTER 6: COURSES & DISCIPLINES ==================== -->
     <section id="corsi" class="py-24 bg-ivory relative overflow-hidden border-t border-sandstone/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -1014,309 +1044,287 @@
       </div>
     </section>
 
-    <!-- Bottom Chapter Bar -->
-    <div class="bg-ivoryLight py-10 border-t border-sandstone/60">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <a href="#home" onclick="navigateTo('home'); return false;" class="text-xs text-charcoal/70 hover:text-saffron font-medium flex items-center gap-1.5 transition">
-          <span>&larr;</span> <span data-i18n="nav_back_home">Back to Home</span>
-        </a>
-        <a href="#contatti" onclick="navigateTo('contatti'); return false;" class="px-6 py-3 rounded-full bg-cosmic text-solarGold-light hover:text-white border border-solarGold/40 text-xs font-semibold uppercase tracking-wider shadow flex items-center gap-2 hover:bg-cosmic-dark transition">
-          <span data-i18n="next_chapter_prefix">Next Chapter:</span> <span data-i18n="nav_contatti">Contact & Studio</span> <span>&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </div>
+    <!-- Tapestry Accent Gold Divider -->
+    <div class="h-0.5 tapestry-gold-strip"></div>
 
-  <!-- ==================== VIEW 6: CONTATTI & PRENOTAZIONI ==================== -->
-  <div id="view-contatti" class="page-view hidden">
-    <!-- View Header Banner -->
-    <div class="bg-cosmic text-ivory py-8 border-b border-solarGold/30">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <div class="flex items-center space-x-2 text-xs text-solarGold-light mb-1">
-            <a href="#home" onclick="navigateTo('home'); return false;" class="hover:underline flex items-center gap-1">
-              <span>&larr;</span> <span data-i18n="bc_home">Home</span>
-            </a>
-            <span>/</span>
-            <span class="text-ivory/70" data-i18n="nav_contatti">Contact & Studio</span>
-          </div>
-          <h1 class="font-serif text-2xl sm:text-3xl text-ivory font-normal" data-i18n="banner_contact_title">Contact & Bookings in Sorengo-Lugano</h1>
+    <!-- ==================== CHAPTER 7: BOOKING & CONTACT STUDIO ==================== -->
+    <section id="contatti" class="py-24 bg-ivoryLight relative overflow-hidden border-t border-sandstone/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div id="prenota" class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-saffron text-xs uppercase tracking-[0.25em] font-semibold block mb-2" data-i18n="booking_badge">Begin Your Journey</span>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-cosmic font-normal tracking-tight" data-i18n="booking_title">Contact Parvati Yoga School or Book a Trial</h2>
+          <div class="w-20 h-0.5 bg-gradient-to-r from-solarGold via-saffron to-amethyst mx-auto my-4"></div>
+          <p class="text-charcoal/80 font-sans text-base sm:text-lg leading-relaxed text-balance" data-i18n="booking_subtitle">With zero commitment. Share your health or practice goals and experience the depth and gentleness of the Kayakalpa method.</p>
         </div>
-        <a href="https://wa.me/41794683258" target="_blank" class="px-5 py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium uppercase tracking-wider shadow flex items-center gap-1.5 transition">
-          <span>WhatsApp Studio (+41 79 468 32 58)</span>
-        </a>
-      </div>
-    </div>
 
-    <!-- ==================== BOOK A FREE TRIAL SESSION & CONTACT ==================== -->
-    <section id="prenota" class="py-24 bg-ivoryLight relative overflow-hidden border-t border-sandstone/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-saffron text-xs uppercase tracking-[0.25em] font-semibold block mb-2" data-i18n="booking_badge">Begin Your Journey</span>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-cosmic font-normal tracking-tight" data-i18n="booking_title">Contact Parvati Yoga School or Book a Trial</h2>
-        <div class="w-20 h-0.5 bg-gradient-to-r from-solarGold via-saffron to-amethyst mx-auto my-4"></div>
-        <p class="text-charcoal/80 font-sans text-base sm:text-lg leading-relaxed text-balance" data-i18n="booking_subtitle">With zero commitment. Share your health or practice goals and experience the depth and gentleness of the Kayakalpa method.</p>
-      </div>
-
-      <!-- Main Booking Container with Cosmic Jewel Styling -->
-      <div class="bg-ivory rounded-3xl border border-sandstone shadow-xl overflow-hidden max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
-          
-          <!-- Left Column: Info & WhatsApp Direct -->
-          <div class="lg:col-span-5 bg-cosmic text-ivory p-8 sm:p-12 flex flex-col justify-between">
-            <div class="space-y-6">
-              
-              <div class="inline-block px-3 py-1 rounded-full bg-solarGold/20 text-solarGold-light text-xs font-semibold uppercase tracking-widest" data-i18n="booking_left_tag">Parvati Yoga School</div>
-
-              <h3 class="font-serif text-2xl sm:text-3xl font-normal text-ivory" data-i18n="booking_left_title">We Welcome You in Sorengo-Lugano</h3>
-
-              <p class="text-ivory/80 text-sm leading-relaxed" data-i18n="booking_left_desc">Whether you are a novice or a seasoned seeker looking for internal alchemy, you will find a protected, welcoming, and non-judgmental space.</p>
-
-              <div class="space-y-4 pt-4 border-t border-solarGold/20 text-xs text-ivory/85">
-                <div class="flex items-start gap-3">
-                  <span class="text-solarGold-light text-base">📍</span>
-                  <div>
-                    <strong class="text-white block text-sm" data-i18n="booking_info_addr_label">Studio Location</strong>
-                    <span data-i18n="booking_info_addr_val">Via Ponte Tresa 7B, 6924 Sorengo, Switzerland</span>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <span class="text-emerald-400 text-base">💬</span>
-                  <div>
-                    <strong class="text-white block text-sm" data-i18n="booking_info_wa_label">Direct Studio WhatsApp</strong>
-                    <a id="card-wa-link" href="https://wa.me/41794683258" target="_blank" class="hover:text-solarGold-light transition text-emerald-400 font-semibold">+41 79 468 32 58</a>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <span class="text-solarGold-light text-base">📞</span>
-                  <div>
-                    <strong class="text-white block text-sm" data-i18n="booking_info_phone_label">Studio Phone</strong>
-                    <span>Tel: +41 (0)91 994 50 68 &bull; Mob: +41 (0)79 468 32 58</span>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <span class="text-solarGold-light text-base">✉️</span>
-                  <div>
-                    <strong class="text-white block text-sm" data-i18n="booking_info_email_label">Email</strong>
-                    <a href="mailto:kayakalpayogam@gmail.com" class="hover:text-solarGold-light transition text-solarGold-light">kayakalpayogam@gmail.com</a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- WhatsApp Instant Contact Card -->
-            <div class="mt-8 p-5 rounded-2xl bg-cosmic-surface/80 border border-solarGold/30 shadow-inner">
-              <p class="text-xs text-ivory/80 mb-3" data-i18n="wa_quick_label">Prefer to message directly on WhatsApp in seconds?</p>
-              <a 
-                id="direct-wa-btn" 
-                href="https://wa.me/41794683258?text=Hello%20Acharya%20ji%20and%20Parvati%20Yoga%20School,%20I%20would%20like%20more%20information%20about%20Kayakalpa%20classes%20in%20Lugano." 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow"
-              >
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.974.532 1.838.82 2.796.82h.005c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.806-5.773-5.806zm4.072 8.163c-.173.486-.867.925-1.229.982-.361.057-.827.08-2.383-.563-1.992-.824-3.255-2.827-3.353-2.959-.098-.132-.807-1.074-.807-2.049 0-.974.512-1.453.693-1.652.18-.198.394-.248.525-.248.131 0 .262.002.378.007.121.006.284-.046.444.339.165.394.558 1.36.608 1.46.049.1.082.217.016.348-.066.131-.098.213-.197.328-.098.115-.207.257-.295.345-.099.098-.202.205-.087.402.115.197.511.844 1.096 1.365.753.67 1.388.877 1.585.975.197.098.312.082.427-.049.115-.131.492-.574.623-.771.131-.197.262-.164.443-.098.18.066 1.148.541 1.345.64.197.098.328.148.377.23.049.082.049.475-.124.961zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.66 1.438 5.176L2 22l4.981-1.306C8.423 21.493 10.153 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-                <span data-i18n="wa_quick_btn">Message on WhatsApp (+41 79 468 32 58)</span>
-              </a>
-            </div>
-
-          </div>
-
-          <!-- Right Column: Interactive Inquiry Form -->
-          <div class="lg:col-span-7 p-8 sm:p-12">
+        <!-- Main Booking Container with Cosmic Jewel Styling -->
+        <div class="bg-ivory rounded-3xl border border-sandstone shadow-xl overflow-hidden max-w-5xl mx-auto mb-20">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
             
-            <form id="trial-form" onsubmit="handleBookingSubmit(event)" class="space-y-5">
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="form-name" class="block text-xs font-semibold uppercase tracking-wider text-charcoal/80 mb-1.5" data-i18n="form_name">Full Name *</label>
-                  <input 
-                    type="text" 
-                    id="form-name" 
-                    required 
-                    placeholder="e.g. John Smith" 
-                    class="w-full px-4 py-3 rounded-xl bg-ivoryLight border border-sandstone focus:border-saffron focus:outline-none text-sm transition"
-                  />
+            <!-- Left Column: Info & WhatsApp Direct -->
+            <div class="lg:col-span-5 bg-cosmic text-ivory p-8 sm:p-12 flex flex-col justify-between">
+              <div class="space-y-6">
+                
+                <div class="inline-block px-3 py-1 rounded-full bg-solarGold/20 text-solarGold-light text-xs font-semibold uppercase tracking-widest" data-i18n="booking_left_tag">Parvati Yoga School</div>
+
+                <h3 class="font-serif text-2xl sm:text-3xl font-normal text-ivory" data-i18n="booking_left_title">We Welcome You in Sorengo-Lugano</h3>
+
+                <p class="text-ivory/80 text-sm leading-relaxed" data-i18n="booking_left_desc">Whether you are a novice or a seasoned seeker looking for internal alchemy, you will find a protected, welcoming, and non-judgmental space.</p>
+
+                <div class="space-y-4 pt-4 border-t border-solarGold/20 text-xs text-ivory/85">
+                  <div class="flex items-start gap-3">
+                    <span class="text-solarGold-light text-base">📍</span>
+                    <div>
+                      <strong class="text-white block text-sm" data-i18n="booking_info_addr_label">Studio Location</strong>
+                      <span data-i18n="booking_info_addr_val">Via Ponte Tresa 7B, 6924 Sorengo, Switzerland</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <span class="text-emerald-400 text-base">💬</span>
+                    <div>
+                      <strong class="text-white block text-sm" data-i18n="booking_info_wa_label">Direct Studio WhatsApp</strong>
+                      <a id="card-wa-link" href="https://wa.me/41794683258" target="_blank" class="hover:text-solarGold-light transition text-emerald-400 font-semibold">+41 79 468 32 58</a>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <span class="text-solarGold-light text-base">📞</span>
+                    <div>
+                      <strong class="text-white block text-sm" data-i18n="booking_info_phone_label">Studio Phone</strong>
+                      <span>Tel: +41 (0)91 994 50 68 &bull; Mob: +41 (0)79 468 32 58</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <span class="text-solarGold-light text-base">✉️</span>
+                    <div>
+                      <strong class="text-white block text-sm" data-i18n="booking_info_email_label">Email</strong>
+                      <a href="mailto:kayakalpayogam@gmail.com" class="hover:text-solarGold-light transition text-solarGold-light">kayakalpayogam@gmail.com</a>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <label for="form-phone" class="block text-xs font-semibold uppercase tracking-wider text-charcoal/80 mb-1.5" data-i18n="form_phone">Phone / WhatsApp *</label>
-                  <input 
-                    type="tel" 
-                    id="form-phone" 
-                    required 
-                    placeholder="e.g. +41 79 123 45 67" 
-                    class="w-full px-4 py-3 rounded-xl bg-ivoryLight border border-sandstone focus:border-saffron focus:outline-none text-sm transition"
-                  />
-                </div>
               </div>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="form-email" class="block text-xs font-semibold uppercase tracking-wider text-charcoal/80 mb-1.5" data-i18n="form_email">Email *</label>
-                  <input 
-                    type="email" 
-                    id="form-email" 
-                    required 
-                    placeholder="yourname@example.com" 
-                    class="w-full px-4 py-3 rounded-xl bg-ivoryLight border border-sandstone focus:border-saffron focus:outline-none text-sm transition"
-                  />
-                </div>
-
-                <div>
-                  <label for="form-course" class="block text-xs font-semibold uppercase tracking-wider text-charcoal/80 mb-1.5" data-i18n="form_course">Interest *</label>
-                  <select 
-                    id="form-course" 
-                    required 
-                    class="w-full px-4 py-3 rounded-xl bg-ivoryLight border border-sandstone focus:border-saffron focus:outline-none text-sm transition text-charcoal"
-                  >
-                    <!-- Options populated dynamically by JS for 100% pure IT/EN -->
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label for="form-notes" class="block text-xs font-semibold uppercase tracking-wider text-charcoal/80 mb-1.5" data-i18n="form_notes">Message or Health Needs (optional)</label>
-                <textarea 
-                  id="form-notes" 
-                  rows="3" 
-                  placeholder="Spinal conditions, rejuvenation goals, preferred schedule, or questions for the teacher..." 
-                  class="w-full px-4 py-3 rounded-xl bg-ivoryLight border border-sandstone focus:border-saffron focus:outline-none text-sm transition"
-                ></textarea>
-              </div>
-
-              <div class="pt-2">
-                <button 
-                  type="submit" 
-                  class="w-full py-4 rounded-full bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white font-medium text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+              <!-- WhatsApp Instant Contact Card -->
+              <div class="mt-8 p-5 rounded-2xl bg-cosmic-surface/80 border border-solarGold/30 shadow-inner">
+                <p class="text-xs text-ivory/80 mb-3" data-i18n="wa_quick_label">Prefer to message directly on WhatsApp in seconds?</p>
+                <a 
+                  id="direct-wa-btn" 
+                  href="https://wa.me/41794683258?text=Hello%20Acharya%20ji%20and%20Parvati%20Yoga%20School,%20I%20would%20like%20more%20information%20about%20Kayakalpa%20classes%20in%20Lugano." 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow"
                 >
-                  <span data-i18n="form_submit">Send Contact or Trial Request</span>
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </button>
-                <p class="text-[11px] text-charcoal/60 text-center mt-2" data-i18n="form_privacy">Your details remain strictly confidential. We will get back to you promptly.</p>
-              </div>
-
-              <!-- Success Alert Box -->
-              <div id="booking-success" class="hidden p-5 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-center space-y-3">
-                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto text-xl">✓</div>
-                <h4 class="font-serif font-bold text-lg" data-i18n="form_success_title">Thank you! Your request has been received.</h4>
-                <p class="text-xs text-emerald-800 leading-relaxed" data-i18n="form_success_desc">We will contact you shortly to confirm your appointment or requested information.</p>
-                <a id="success-wa-link" href="#" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-600 text-white text-xs font-semibold uppercase tracking-wider">
-                  <span data-i18n="form_success_wa">Confirm now via WhatsApp</span> &rarr;
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.974.532 1.838.82 2.796.82h.005c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.806-5.773-5.806zm4.072 8.163c-.173.486-.867.925-1.229.982-.361.057-.827.08-2.383-.563-1.992-.824-3.255-2.827-3.353-2.959-.098-.132-.807-1.074-.807-2.049 0-.974.512-1.453.693-1.652.18-.198.394-.248.525-.248.131 0 .262.002.378.007.121.006.284-.046.444.339.165.394.558 1.36.608 1.46.049.1.082.217.016.348-.066.131-.098.213-.197.328-.098.115-.207.257-.295.345-.099.098-.202.205-.087.402.115.197.511.844 1.096 1.365.753.67 1.388.877 1.585.975.197.098.312.082.427-.049.115-.131.492-.574.623-.771.131-.197.262-.164.443-.098.18.066 1.148.541 1.345.64.197.098.328.148.377.23.049.082.049.475-.124.961zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.66 1.438 5.176L2 22l4.981-1.306C8.423 21.493 10.153 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                  <span data-i18n="wa_quick_btn">Message on WhatsApp (+41 79 468 32 58)</span>
                 </a>
               </div>
 
-            </form>
+            </div>
+
+            <!-- Right Column: Interactive Inquiry Form -->
+            <div class="lg:col-span-7 p-8 sm:p-12">
+              
+              <form id="trial-form" onsubmit="handleBookingSubmit(event)" class="space-y-5">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="form-name" class="block text-xs font-semibold uppercase tracking-wider text-charcoal/80 mb-1.5" data-i18n="form_name">Full Name *</label>
+                    <input 
+                      type="text" 
+                      id="form-name" 
+                      required 
+                      placeholder="e.g. John Smith" 
+                      class="w-full px-4 py-3 rounded-xl bg-ivoryLight border border-sandstone focus:border-saffron focus:outline-none text-sm transition"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="form-phone" class="block text-xs font-semibold uppercase tracking-wider text-charcoal/80 mb-1.5" data-i18n="form_phone">Phone / WhatsApp *</label>
+                    <input 
+                      type="tel" 
+                      id="form-phone" 
+                      required 
+                      placeholder="e.g. +41 79 123 45 67" 
+                      class="w-full px-4 py-3 rounded-xl bg-ivoryLight border border-sandstone focus:border-saffron focus:outline-none text-sm transition"
+                    />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="form-email" class="block text-xs font-semibold uppercase tracking-wider text-charcoal/80 mb-1.5" data-i18n="form_email">Email *</label>
+                    <input 
+                      type="email" 
+                      id="form-email" 
+                      required 
+                      placeholder="yourname@example.com" 
+                      class="w-full px-4 py-3 rounded-xl bg-ivoryLight border border-sandstone focus:border-saffron focus:outline-none text-sm transition"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="form-course" class="block text-xs font-semibold uppercase tracking-wider text-charcoal/80 mb-1.5" data-i18n="form_course">Interest *</label>
+                    <select 
+                      id="form-course" 
+                      required 
+                      class="w-full px-4 py-3 rounded-xl bg-ivoryLight border border-sandstone focus:border-saffron focus:outline-none text-sm transition text-charcoal"
+                    >
+                      <!-- Options populated dynamically by JS for 100% pure IT/EN -->
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="form-notes" class="block text-xs font-semibold uppercase tracking-wider text-charcoal/80 mb-1.5" data-i18n="form_notes">Message or Health Needs (optional)</label>
+                  <textarea 
+                    id="form-notes" 
+                    rows="3" 
+                    placeholder="Spinal conditions, rejuvenation goals, preferred schedule, or questions for the teacher..." 
+                    class="w-full px-4 py-3 rounded-xl bg-ivoryLight border border-sandstone focus:border-saffron focus:outline-none text-sm transition"
+                  ></textarea>
+                </div>
+
+                <div class="pt-2">
+                  <button 
+                    type="submit" 
+                    class="w-full py-4 rounded-full bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white font-medium text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    <span data-i18n="form_submit">Send Contact or Trial Request</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                  </button>
+                  <p class="text-[11px] text-charcoal/60 text-center mt-2" data-i18n="form_privacy">Your details remain strictly confidential. We will get back to you promptly.</p>
+                </div>
+
+                <!-- Success Alert Box -->
+                <div id="booking-success" class="hidden p-5 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-center space-y-3">
+                  <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto text-xl">✓</div>
+                  <h4 class="font-serif font-bold text-lg" data-i18n="form_success_title">Thank you! Your request has been received.</h4>
+                  <p class="text-xs text-emerald-800 leading-relaxed" data-i18n="form_success_desc">We will contact you shortly to confirm your appointment or requested information.</p>
+                  <a id="success-wa-link" href="#" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-600 text-white text-xs font-semibold uppercase tracking-wider">
+                    <span data-i18n="form_success_wa">Confirm now via WhatsApp</span> &rarr;
+                  </a>
+                </div>
+
+              </form>
+
+            </div>
 
           </div>
-
         </div>
-      </div>
 
-    </div>
-  </section>
-
-  <!-- ==================== STUDIO LOCATION & CONTACT ==================== -->
-  <section id="contatti" class="py-24 bg-ivory relative overflow-hidden border-t border-sandstone/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <div class="lg:col-span-6 space-y-6">
-          <span class="text-saffron text-xs uppercase tracking-[0.25em] font-semibold block" data-i18n="loc_badge">Visit Our Sanctuary</span>
-          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-cosmic font-normal tracking-tight" data-i18n="loc_title">Parvati Yoga School in Sorengo-Lugano</h2>
-          <div class="w-20 h-0.5 bg-gradient-to-r from-solarGold via-saffron to-amethyst my-4"></div>
+        <!-- Studio Location & Accessibility Details -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <p class="text-charcoal/80 leading-relaxed text-sm sm:text-base" data-i18n="loc_desc">In Canton Ticino, in Sorengo right by Lugano, the school provides a quiet haven to step away from daily rush and restore vital energies.</p>
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-saffron text-xs uppercase tracking-[0.25em] font-semibold block" data-i18n="loc_badge">Visit Our Sanctuary</span>
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-cosmic font-normal tracking-tight" data-i18n="loc_title">Parvati Yoga School in Sorengo-Lugano</h2>
+            <div class="w-20 h-0.5 bg-gradient-to-r from-solarGold via-saffron to-amethyst my-4"></div>
+            
+            <p class="text-charcoal/80 leading-relaxed text-sm sm:text-base" data-i18n="loc_desc">In Canton Ticino, in Sorengo right by Lugano, the school provides a quiet haven to step away from daily rush and restore vital energies.</p>
 
-          <div class="space-y-4 pt-2">
-            <div class="p-4 rounded-xl bg-ivoryLight border border-sandstone flex items-center gap-4 shadow-sm">
-              <span class="text-2xl text-ruby">📍</span>
-              <div>
-                <h4 class="font-bold text-cosmic text-sm" data-i18n="loc_addr_title">Studio Address</h4>
-                <p class="text-xs text-charcoal/80 font-medium" data-i18n="loc_addr_val">Via Ponte Tresa 7B, 6924 Sorengo (Lugano), Switzerland</p>
-              </div>
-            </div>
-
-            <div class="p-4 rounded-xl bg-ivoryLight border border-sandstone flex items-center gap-4 shadow-sm">
-              <span class="text-2xl text-solarGold">🚆</span>
-              <div>
-                <h4 class="font-bold text-cosmic text-sm" data-i18n="loc_trans_title">Accessibility & Transit</h4>
-                <p class="text-xs text-charcoal/70" data-i18n="loc_trans_desc">Easily accessible from central Lugano, FLP train (Lugano-Ponte Tresa, Sorengo stop), local buses, and parking.</p>
-              </div>
-            </div>
-
-            <div class="p-4 rounded-xl bg-ivoryLight border border-sandstone flex items-center gap-4 shadow-sm">
-              <span class="text-2xl text-emerald-500">💬</span>
-              <div>
-                <h4 class="font-bold text-cosmic text-sm" data-i18n="loc_contact_title">Direct Contact & WhatsApp</h4>
-                <p class="text-xs text-charcoal/70" data-i18n="loc_contact_details">WhatsApp / Mobile: <a href="https://wa.me/41794683258" class="text-emerald-600 font-bold hover:underline">+41 79 468 32 58</a> &bull; Phone: <a href="tel:+41919945068" class="hover:underline">+41 91 994 50 68</a><br />Email: <a href="mailto:kayakalpayogam@gmail.com" class="hover:text-saffron transition underline decoration-sandstone underline-offset-2">kayakalpayogam@gmail.com</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="pt-2 flex flex-wrap gap-4">
-            <a href="#prenota" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white font-medium text-xs uppercase tracking-wider shadow transition">
-              <span data-i18n="loc_btn_trial">Request Info or Trial</span>
-            </a>
-            <a href="https://wa.me/41794683258" target="_blank" class="px-8 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider shadow transition flex items-center gap-1.5">
-              <span data-i18n="loc_btn_wa">WhatsApp Studio (+41 79 468 32 58)</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="lg:col-span-6">
-          <div class="bg-cosmic text-ivory rounded-3xl p-8 sm:p-10 border border-solarGold/40 shadow-2xl relative overflow-hidden">
-            <div class="space-y-6 relative z-10">
-              <div class="flex justify-between items-center">
-                <span class="text-solarGold-light text-xs uppercase tracking-widest font-semibold">Sorengo-Lugano, Ticino</span>
-                <span class="px-3 py-1 rounded-full bg-solarGold/20 text-solarGold-light text-[10px] font-bold uppercase" data-i18n="loc_tag">Parvati School</span>
-              </div>
-
-              <h3 class="font-serif text-2xl sm:text-3xl text-ivory" data-i18n="loc_quote">"A sanctuary where time slows, breath regains its vastness, and cells regenerate."</h3>
-
-              <div class="rounded-2xl overflow-hidden border border-solarGold/30 h-56 relative shadow-inner bg-cosmic-deep">
-                <img 
-                  src="kayakalpa-sanctuary.jpg" 
-                  alt="Lakeside meditation sanctuary" 
-                  data-i18n-alt="Lakeside meditation sanctuary"
-                  class="w-full h-full object-cover"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep via-transparent to-transparent flex items-end p-4">
-                  <p class="text-xs text-ivory font-serif italic text-solarGold-light" data-i18n="loc_caption">Parvati Yoga School &bull; Sorengo (Lugano), Canton Ticino</p>
+            <div class="space-y-4 pt-2">
+              <div class="p-4 rounded-xl bg-ivory border border-sandstone flex items-center gap-4 shadow-sm">
+                <span class="text-2xl text-ruby">📍</span>
+                <div>
+                  <h4 class="font-bold text-cosmic text-sm" data-i18n="loc_addr_title">Studio Address</h4>
+                  <p class="text-xs text-charcoal/80 font-medium" data-i18n="loc_addr_val">Via Ponte Tresa 7B, 6924 Sorengo (Lugano), Switzerland</p>
                 </div>
               </div>
 
-              <div class="flex justify-between items-center text-xs text-ivory/75 pt-2 border-t border-solarGold/20">
-                <span data-i18n="loc_footer_left">Classes and workshops in Sorengo</span>
-                <span class="text-solarGold-light font-medium" data-i18n="loc_footer_right">Via Ponte Tresa 7B, Sorengo</span>
+              <div class="p-4 rounded-xl bg-ivory border border-sandstone flex items-center gap-4 shadow-sm">
+                <span class="text-2xl text-solarGold">🚆</span>
+                <div>
+                  <h4 class="font-bold text-cosmic text-sm" data-i18n="loc_trans_title">Accessibility & Transit</h4>
+                  <p class="text-xs text-charcoal/70" data-i18n="loc_trans_desc">Easily accessible from central Lugano, FLP train (Lugano-Ponte Tresa, Sorengo stop), local buses, and parking.</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-ivory border border-sandstone flex items-center gap-4 shadow-sm">
+                <span class="text-2xl text-emerald-500">💬</span>
+                <div>
+                  <h4 class="font-bold text-cosmic text-sm" data-i18n="loc_contact_title">Direct Contact & WhatsApp</h4>
+                  <p class="text-xs text-charcoal/70" data-i18n="loc_contact_details">WhatsApp / Mobile: <a href="https://wa.me/41794683258" class="text-emerald-600 font-bold hover:underline">+41 79 468 32 58</a> &bull; Phone: <a href="tel:+41919945068" class="hover:underline">+41 91 994 50 68</a><br />Email: <a href="mailto:kayakalpayogam@gmail.com" class="hover:text-saffron transition underline decoration-sandstone underline-offset-2">kayakalpayogam@gmail.com</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-wrap gap-4">
+              <a href="#prenota" onclick="scrollToSection('prenota'); return false;" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-saffron to-ruby hover:from-saffron-dark hover:to-ruby-dark text-white font-medium text-xs uppercase tracking-wider shadow transition">
+                <span data-i18n="loc_btn_trial">Request Info or Trial</span>
+              </a>
+              <a href="https://wa.me/41794683258" target="_blank" class="px-8 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs uppercase tracking-wider shadow transition flex items-center gap-1.5">
+                <span data-i18n="loc_btn_wa">WhatsApp Studio (+41 79 468 32 58)</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="bg-cosmic text-ivory rounded-3xl p-8 sm:p-10 border border-solarGold/40 shadow-2xl relative overflow-hidden">
+              <div class="space-y-6 relative z-10">
+                <div class="flex justify-between items-center">
+                  <span class="text-solarGold-light text-xs uppercase tracking-widest font-semibold">Sorengo-Lugano, Ticino</span>
+                  <span class="px-3 py-1 rounded-full bg-solarGold/20 text-solarGold-light text-[10px] font-bold uppercase" data-i18n="loc_tag">Parvati School</span>
+                </div>
+
+                <h3 class="font-serif text-2xl sm:text-3xl text-ivory" data-i18n="loc_quote">"A sanctuary where time slows, breath regains its vastness, and cells regenerate."</h3>
+
+                <div class="rounded-2xl overflow-hidden border border-solarGold/30 h-56 relative shadow-inner bg-cosmic-deep cursor-pointer" onclick="openLightboxBySrc('kayakalpa-sanctuary.jpg', 'Parvati Yoga Sanctuary', 'The serene sacred studio in Sorengo-Lugano.')">
+                  <img 
+                    src="kayakalpa-sanctuary.jpg" 
+                    alt="Lakeside meditation sanctuary" 
+                    data-i18n-alt="alt_contact_sanctuary"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-cosmic-deep via-transparent to-transparent flex items-end p-4">
+                    <p class="text-xs text-ivory font-serif italic text-solarGold-light" data-i18n="loc_caption">Parvati Yoga School &bull; Sorengo (Lugano), Canton Ticino</p>
+                  </div>
+                </div>
+
+                <div class="flex justify-between items-center text-xs text-ivory/75 pt-2 border-t border-solarGold/20">
+                  <span data-i18n="loc_footer_left">Classes and workshops in Sorengo</span>
+                  <span class="text-solarGold-light font-medium" data-i18n="loc_footer_right">Via Ponte Tresa 7B, Sorengo</span>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
 
       </div>
+    </section>
 
-    </div>
-  </section>
+  </main>
 
-  <!-- Bottom Chapter Bar -->
-  <div class="bg-ivoryLight py-10 border-t border-sandstone/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <a href="#home" onclick="navigateTo('home'); return false;" class="text-xs text-charcoal/70 hover:text-saffron font-medium flex items-center gap-1.5 transition">
-        <span>&larr;</span> <span data-i18n="nav_back_home">Back to Home</span>
-      </a>
-      <a href="#lo-stile" onclick="navigateTo('lo-stile'); return false;" class="px-6 py-3 rounded-full bg-cosmic text-solarGold-light hover:text-white border border-solarGold/40 text-xs font-semibold uppercase tracking-wider shadow flex items-center gap-2 hover:bg-cosmic-dark transition">
-        <span data-i18n="next_chapter_prefix">Next Chapter:</span> <span data-i18n="nav_style">The Kayakalpa Style</span> <span>&rarr;</span>
-      </a>
+  <!-- ==================== LIGHTBOX MODAL (Full Resolution Perspectives) ==================== -->
+  <div id="lightbox-modal" style="display: none;" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md items-center justify-center p-4 select-none">
+    <!-- Close Button -->
+    <button onclick="closeLightbox()" aria-label="Close Lightbox" class="absolute top-5 right-5 text-ivory/80 hover:text-white p-3 rounded-full bg-cosmic-surface border border-solarGold/40 z-50 hover:bg-cosmic transition shadow-lg">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    
+    <!-- Prev Arrow Button -->
+    <button onclick="prevLightbox(event)" aria-label="Previous Perspective" class="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 text-solarGold-light hover:text-white p-3 rounded-full bg-cosmic-surface border border-solarGold/40 z-50 hover:bg-cosmic transition shadow-xl">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+
+    <!-- Next Arrow Button -->
+    <button onclick="nextLightbox(event)" aria-label="Next Perspective" class="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 text-solarGold-light hover:text-white p-3 rounded-full bg-cosmic-surface border border-solarGold/40 z-50 hover:bg-cosmic transition shadow-xl">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <div class="max-w-4xl w-full text-center px-4" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="Fullscreen Kayakalpa Sanctuary View" class="max-h-[75vh] w-auto mx-auto rounded-xl shadow-2xl border border-solarGold/40 object-contain" />
+      <div class="mt-4">
+        <p id="lightbox-caption" class="font-serif text-lg sm:text-xl text-ivory font-medium"></p>
+        <p id="lightbox-counter" class="text-xs text-solarGold-light font-mono mt-1"></p>
+      </div>
     </div>
   </div>
-</div>
 
   <!-- ==================== MAIN FOOTER: COSMIC PALETTE ==================== -->
   <footer class="bg-cosmic-deep text-ivory py-16 border-t border-solarGold/25">
@@ -1343,13 +1351,13 @@
         <div class="lg:col-span-3 space-y-3">
           <h4 class="font-serif font-bold text-solarGold-light text-sm uppercase tracking-wider" data-i18n="footer_nav_heading">Navigation</h4>
           <ul class="text-xs space-y-2 text-ivory/75">
-            <li><a href="#home" onclick="navigateTo('home'); return false;" class="hover:text-solarGold transition" data-i18n="nav_home">Home</a></li>
-            <li><a href="#lo-stile" onclick="navigateTo('lo-stile'); return false;" class="hover:text-solarGold transition" data-i18n="nav_style">The Kayakalpa Style</a></li>
-            <li><a href="#acharya" onclick="navigateTo('acharya'); return false;" class="hover:text-solarGold transition" data-i18n="nav_acharya">The Acharya (Authority)</a></li>
-            <li><a href="#lugano-india" onclick="navigateTo('lugano-india'); return false;" class="hover:text-solarGold transition" data-i18n="nav_dual">Lugano & India</a></li>
-            <li><a href="#scuola" onclick="navigateTo('scuola'); return false;" class="hover:text-solarGold transition" data-i18n="nav_scuola">Parvati Yoga School</a></li>
-            <li><a href="#corsi" onclick="navigateTo('corsi'); return false;" class="hover:text-solarGold transition" data-i18n="nav_corsi">Classes & Practice</a></li>
-            <li><a href="#contatti" onclick="navigateTo('contatti'); return false;" class="hover:text-solarGold transition" data-i18n="nav_contatti">Contact & Studio</a></li>
+            <li><a href="#hero" onclick="scrollToSection('hero'); return false;" class="hover:text-solarGold transition" data-i18n="nav_home">Home</a></li>
+            <li><a href="#lo-stile" onclick="scrollToSection('lo-stile'); return false;" class="hover:text-solarGold transition" data-i18n="nav_style">The Kayakalpa Style</a></li>
+            <li><a href="#acharya" onclick="scrollToSection('acharya'); return false;" class="hover:text-solarGold transition" data-i18n="nav_acharya">The Acharya (Authority)</a></li>
+            <li><a href="#lugano-india" onclick="scrollToSection('lugano-india'); return false;" class="hover:text-solarGold transition" data-i18n="nav_dual">Lugano & India</a></li>
+            <li><a href="#scuola" onclick="scrollToSection('scuola'); return false;" class="hover:text-solarGold transition" data-i18n="nav_scuola">Parvati Yoga School</a></li>
+            <li><a href="#corsi" onclick="scrollToSection('corsi'); return false;" class="hover:text-solarGold transition" data-i18n="nav_corsi">Classes & Practice</a></li>
+            <li><a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="hover:text-solarGold transition" data-i18n="nav_contatti">Contact & Studio</a></li>
           </ul>
         </div>
 
@@ -1379,72 +1387,165 @@
     </div>
   </footer>
 
-  <!-- ==================== JAVASCRIPT: 100% PURE BILINGUAL ENGINE ==================== -->
+  <!-- ==================== LOGIC & SCRIPT ==================== -->
   <script>
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
     }
 
-    // ==================== VIEW ROUTER SYSTEM ====================
-    const views = ['home', 'lo-stile', 'acharya', 'lugano-india', 'scuola', 'corsi', 'contatti'];
-
-    function navigateTo(viewId) {
-      if (viewId === 'prenota') viewId = 'contatti';
-      if (!views.includes(viewId)) viewId = 'home';
-
-      if (window.location.hash !== '#' + viewId) {
-        history.pushState(null, '', '#' + viewId);
-      }
-
-      views.forEach(id => {
-        const el = document.getElementById('view-' + id);
-        if (el) {
-          if (id === viewId) {
-            el.classList.remove('hidden');
-            el.classList.add('page-view');
-          } else {
-            el.classList.add('hidden');
-            el.classList.remove('page-view');
-          }
+    // --- Smooth Tapestry Navigation ---
+    function scrollToSection(id) {
+      if (id === 'home') id = 'hero';
+      const target = document.getElementById(id);
+      if (target) {
+        const headerHeight = document.getElementById('site-header')?.offsetHeight || 80;
+        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 2;
+        window.scrollTo({
+          top: targetPos,
+          behavior: 'smooth'
+        });
+        if (history.pushState) {
+          history.pushState(null, '', '#' + id);
         }
-      });
+      }
+    }
 
-      // Update Desktop Active Tab
+    // --- Active Nav Tab Updater (ScrollSpy) ---
+    const observedSections = ['hero', 'lo-stile', 'acharya', 'lugano-india', 'scuola', 'corsi', 'contatti'];
+
+    function updateActiveNav(activeId) {
       document.querySelectorAll('.nav-tab').forEach(tab => {
-        if (tab.getAttribute('data-nav') === viewId) {
+        const tabTarget = tab.getAttribute('data-nav');
+        if (tabTarget === activeId || (tabTarget === 'home' && activeId === 'hero')) {
           tab.className = 'nav-tab text-saffron font-bold border-b-2 border-saffron py-1.5 transition-all';
         } else {
           tab.className = 'nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all';
         }
       });
 
-      // Update Mobile Active Tab
       document.querySelectorAll('.mobile-nav-tab').forEach(tab => {
-        if (tab.getAttribute('data-nav') === viewId) {
+        const tabTarget = tab.getAttribute('data-nav');
+        if (tabTarget === activeId || (tabTarget === 'home' && activeId === 'hero')) {
           tab.className = 'mobile-nav-tab block py-2 border-b border-sandstone/40 text-saffron font-bold';
         } else {
           tab.className = 'mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium';
         }
       });
-
-      window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
+    function initScrollSpy() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            updateActiveNav(entry.target.id);
+          }
+        });
+      }, observerOptions);
+
+      observedSections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section) observer.observe(section);
+      });
+    }
+
+    // --- Initial Route Handling without Hiding Content ---
     function handleRoute() {
       const hash = window.location.hash.replace(/^#\/?/, '');
-      if (hash && views.includes(hash)) {
-        navigateTo(hash);
-      } else if (hash === 'prenota') {
-        navigateTo('contatti');
-      } else {
-        navigateTo('home');
+      if (hash && (observedSections.includes(hash) || hash === 'prenota' || hash === 'home')) {
+        const targetId = hash === 'home' ? 'hero' : hash;
+        setTimeout(() => {
+          scrollToSection(targetId);
+        }, 150);
       }
     }
 
-    window.addEventListener('hashchange', handleRoute);
-    window.addEventListener('popstate', handleRoute);
+    // --- Gallery & Lightbox Logic ---
+    const galleryData = [
+      { src: 'kayakalpa-chakras.jpg', title: 'Sushumna Nadi & The 7 Chakras', caption: 'Subtle Siddha bio-energy ascension and awakening.' },
+      { src: 'acharya-portrait.jpg', title: 'Acharya Sooryanarayan', caption: 'Living spiritual preceptor of Kayakalpa Yoga in meditation.' },
+      { src: 'kayakalpa-spine.jpg', title: 'Spinal Rejuvenation', caption: 'Transmutation of vital Ojas and biological preservation.' },
+      { src: 'kayakalpa-sanctuary.jpg', title: 'Parvati Yoga Sanctuary', caption: 'The serene sacred studio in Sorengo-Lugano, Canton Ticino.' },
+      { src: 'ashram-cover.jpg', title: 'Santhivanam Ashram Villa', caption: 'Traditional residence nestled in the foothills of Kanakamala, Kerala.' },
+      { src: 'ashram-mandala.jpg', title: 'Nagakalam Sacred Mandala', caption: 'Ancient geometric floor mandala with oil lamps and coconut flowers.' },
+      { src: 'ashram-pathway.jpg', title: 'The Meditative Pathway', caption: 'Dawn silent walking meditation trails in the sacred grove.' }
+    ];
 
+    let currentLightboxIndex = 0;
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+
+    function openLightbox(index) {
+      if (!lightboxModal) return;
+      currentLightboxIndex = (index + galleryData.length) % galleryData.length;
+      const data = galleryData[currentLightboxIndex];
+      
+      if (lightboxImg) lightboxImg.src = data.src;
+      if (lightboxCaption) lightboxCaption.textContent = data.title + ' — ' + data.caption;
+      if (lightboxCounter) lightboxCounter.textContent = 'Perspective 0' + (currentLightboxIndex + 1) + ' of 0' + galleryData.length;
+      
+      lightboxModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function prevLightbox(e) {
+      if (e) e.stopPropagation();
+      openLightbox(currentLightboxIndex - 1);
+    }
+
+    function nextLightbox(e) {
+      if (e) e.stopPropagation();
+      openLightbox(currentLightboxIndex + 1);
+    }
+
+    function openLightboxBySrc(src, title, caption) {
+      if (!lightboxModal) return;
+      const foundIdx = galleryData.findIndex(item => item.src === src);
+      if (foundIdx !== -1) {
+        openLightbox(foundIdx);
+        return;
+      }
+      if (lightboxImg) lightboxImg.src = src;
+      if (lightboxCaption) lightboxCaption.textContent = title + (caption ? ' — ' + caption : '');
+      if (lightboxCounter) lightboxCounter.textContent = 'Special Sanctuary View';
+      
+      lightboxModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      if (!lightboxModal) return;
+      lightboxModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    if (lightboxModal) {
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) {
+          closeLightbox();
+        }
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (lightboxModal && lightboxModal.style.display === 'flex') {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') prevLightbox(e);
+        if (e.key === 'ArrowRight') nextLightbox(e);
+      }
+    });
+
+    // --- Interactive Booking Form Logic ---
     const courseOptions = {
       it: [
         { id: "trial", value: "Lezione di Prova Gratuita", text: "Lezione di Prova Gratuita" },
@@ -1459,14 +1560,14 @@
         { id: "kayakalpa", value: "Kayakalpa Yoga Initiation", text: "Kayakalpa Yoga Initiation" },
         { id: "hatha", value: "Traditional Hatha Yoga", text: "Traditional Hatha Yoga" },
         { id: "kundalini", value: "Maha Kundalini & Meditation", text: "Maha Kundalini & Meditation" },
-        { id: "private", value: "Private Meeting with Acharya", text: "Private Meeting with Acharya" },
+        { id: "private", value: "Private Consultation with Acharya", text: "Private Consultation with Acharya" },
         { id: "retreat", value: "India Retreats (Santhivanam Kerala)", text: "India Retreats (Santhivanam Kerala)" }
       ]
     };
 
     const placeholders = {
       it: {
-        name: "es. Marco Rossi",
+        name: "es. Mario Rossi",
         phone: "es. +41 79 123 45 67",
         email: "tuaemail@esempio.ch",
         notes: "Eventuali dolori posturali, obiettivi di rigenerazione, orari preferiti o domande per l'insegnante..."
@@ -1480,7 +1581,6 @@
     };
 
     function prefillBooking(courseId) {
-      navigateTo('contatti');
       const courseSelect = document.getElementById('form-course');
       const list = courseOptions[currentLang] || [];
       const found = list.find(o => o.id === courseId) || list.find(o => o.value.toLowerCase().includes((courseId || '').toLowerCase()));
@@ -1496,12 +1596,7 @@
           ? "Interesse specifico per: " + title 
           : "Specific interest for: " + title;
       }
-      setTimeout(() => {
-        const target = document.getElementById('prenota');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      scrollToSection('prenota');
     }
 
     function handleBookingSubmit(e) {
@@ -1533,12 +1628,14 @@
       }
     }
 
+    // --- Translations Dictionary (Italian & English) ---
     const translations = {
       it: {
         topbar_geo: "Svizzera 🇨🇭 (Sorengo - Lugano) &bull; India 🇮🇳 (Kerala)",
         topbar_tagline: "Insegnamenti Diretti dell'Acharya Sooryanarayan a Sorengo-Lugano (Parvati Scuola di Yoga) & in India (Santhivanam Ashram)",
         topbar_wa: "WhatsApp Studio:",
         brand_subtitle: "Acharya Sooryanarayan &bull; Parvati Scuola di Yoga",
+        nav_home: "Home",
         nav_style: "Lo Stile Kayakalpa",
         nav_acharya: "L'Acharya (Autorità)",
         nav_dual: "Lugano & India",
@@ -1548,218 +1645,210 @@
         nav_cta: "Richiedi Info o Prova",
         hero_badge: "Insegnamenti dell'Acharya Sooryanarayan • Sorengo-Lugano (Svizzera) & India",
         hero_title_1: "Lo Stile Autentico del Kayakalpa.",
-        hero_title_2: "L'Autorità dell'Acharya tra Sorengo-Lugano e l'India.",
+        hero_title_2: "L'Autorità dell'Acharya tra Sorengo-Lugano & l'India.",
         hero_desc: "Non una ginnastica commerciale, ma l'autentica alchimia yogica interna dei Siddha per il <strong>ringiovanimento cellulare</strong>, la trasmutazione dell'energia vitale e la calma interiore. Trasmessa direttamente dall'<strong>Acharya Sooryanarayan</strong> presso <strong>Parvati Scuola di Yoga</strong> a Sorengo (Lugano), attiva da molti anni, e presso l'Ashram <strong>Santhivanam</strong> in Kerala (India).",
-        hero_btn_trial: "Richiedi Lezione di Prova o Info",
-        hero_btn_discover: "Scopri lo Stile & Metodo",
+        hero_btn_trial: "Richiedi Prova Gratuita o Info",
+        hero_btn_discover: "Scopri lo Stile & il Metodo",
         pillar_1_title: "Stile Unico",
-        pillar_1_desc: "Alchimia interna dei Siddha & 10 min di sadhana",
+        pillar_1_desc: "Alchimia interna dei Siddha & sadhana di 10 min al giorno",
         pillar_2_title: "L'Acharya",
-        pillar_2_desc: "Autorità spirituale vivente con tapasya himalayana",
+        pillar_2_desc: "Autorità spirituale vivente formata dalla tapasya himalayana",
         pillar_3_title: "Scuola Parvati",
         pillar_3_desc: "Attiva da molti anni a Sorengo-Lugano",
-        pillar_4_title: "India Ashram",
+        pillar_4_title: "Ashram in India",
         pillar_4_desc: "Ritiri residenziali a Santhivanam (Kerala)",
-        style_badge: "La Tradizione dei Siddha dell'India Meridionale",
+        marquee_badge: "Arazzo Vivente del Kayakalpa",
+        marquee_hint: "Clicca su qualsiasi prospettiva per esplorare in dettaglio",
+        portal_section_badge: "I Sentieri del Kayakalpa",
+        portal_section_title: "Esplora la Scuola & gli Insegnamenti",
+        portal_section_subtitle: "Scegli un percorso per esplorare lo stile, il lignaggio dell'Acharya, i due santuari o i corsi a Sorengo-Lugano.",
+        portal_card_1_title: "Lo Stile Kayakalpa",
+        portal_card_1_desc: "Alchimia millenaria dei Siddha: rigenerazione spinale, vitalità cellulare ed equilibrio dei 7 chakra.",
+        portal_card_1_btn: "Esplora lo Stile &rarr;",
+        portal_card_2_title: "Acharya Sooryanarayan",
+        portal_card_2_desc: "Autorità spirituale vivente con oltre 40 anni di sadhana e lignaggio diretto maestro-discepolo.",
+        portal_card_2_btn: "Incontra l'Acharya &rarr;",
+        portal_card_3_title: "Due Santuari Viventi",
+        portal_card_3_desc: "Il ponte spirituale tra Sorengo-Lugano in Svizzera e Santhivanam Ashram in Kerala (India).",
+        portal_card_3_btn: "Scopri i Santuari &rarr;",
+        portal_card_4_title: "Parvati Scuola di Yoga",
+        portal_card_4_desc: "Lo storico studio a Sorengo (Canton Ticino): silenzio, concentrazione sacra e guida personalizzata.",
+        portal_card_4_btn: "Visita la Scuola &rarr;",
+        portal_card_5_title: "Corsi & Pratica",
+        portal_card_5_desc: "Corsi per principianti, rigenerazione della colonna, maha kundalini e ritiri residenziali in India.",
+        portal_card_5_btn: "Vedi Corsi & Orari &rarr;",
+        portal_card_6_title: "Contatti & Prenotazioni",
+        portal_card_6_desc: "Richiedi una lezione di prova gratuita a Sorengo o collegati direttamente con il nostro studio su WhatsApp.",
+        portal_card_6_btn: "Contatta lo Studio &rarr;",
+        home_blessing_title: "Messaggio dell'Acharya",
+        home_blessing_text: "\"La vera giovinezza non è un'illusione esteriore, ma la purificazione della forza vitale che risiede lungo la colonna vertebrale, risvegliando ogni cellula al suo potenziale primordiale.\"",
+        home_blessing_author: "&mdash; Acharya Sooryanarayan &bull; Parvati Scuola di Yoga",
+        style_badge: "Lignaggio Millenario dei Siddha del Sud dell'India",
         style_title: "Lo Stile Kayakalpa: Oltre la Semplice Ginnastica",
-        style_subtitle: "In sanscrito, Kaya indica il corpo-veicolo e Kalpa la rigenerazione o trasmutazione alchemica. Questo stile si distingue radicalmente dallo yoga moderno commerciale: è una scienza fisiologica e spirituale interna mirata a preservare la giovinezza cellulare, potenziare il sistema immunitario ed elevare la consapevolezza.",
+        style_subtitle: "In sanscrito, Kaya indica il corpo-tempio e Kalpa la trasformazione alchemica. Questo stile si differenzia radicalmente dallo yoga commerciale moderno: è una scienza fisiologica e spirituale interna formulata per preservare la giovinezza cellulare, potenziare l'immunità ed elevare la coscienza.",
         chakra_caption_1: "Sushumna Nadi & I 7 Centri di Coscienza",
-        chakra_caption_2: "Tradizione Agastya & Siddha",
-        style_feat_tag: "I Principi Fondamentali dello Stile",
+        chakra_caption_2: "Lignaggio di Agastya & dei Siddha",
+        style_feat_tag: "I Cardini dello Stile",
         style_feat_title: "Trasmutazione dell'Energia Ojas & Decompressione Spinale",
-        style_feat_desc_1: "Mentre il fitness yoga occidentale stimola solo i muscoli periferici disperdendo energia, lo <strong>stile Kayakalpa</strong> agisce sulle radici biologiche dell'invecchiamento. Utilizza la sinergia esatta di <em>Bandha</em> (chiusure energetiche pelviche e tiroidee), respirazione cellulare e inversioni dolci per convogliare l'energia vitale essenziale (<em>Sukra</em>) lungo la colonna fino ai centri superiori.",
-        style_feat_desc_2: "Una volta appreso con precisione dall'insegnante, l'allievo ottiene uno strumento prezioso: una pratica autonoma di <strong>soli 10 minuti al giorno</strong> da eseguire a casa ogni mattina. Nessuna complicazione acrobatica, nessun rischio articolare: una sadhana accessibile a qualsiasi età e costituzione.",
+        style_feat_desc_1: "Mentre lo yoga fitness occidentale stimola solo la muscolatura superficiale dissipando energia, lo <strong>stile Kayakalpa</strong> agisce sulle radici biologiche dell'invecchiamento. Utilizza un'esatta sinergia di <em>Bandha</em> (chiusure energetiche pelviche e alla gola), respirazione cellulare e inversioni dolci per convogliare l'energia vitale essenziale (<em>Sukra</em>) verso l'alto lungo la spina dorsale.",
+        style_feat_desc_2: "Una volta appreso con precisione dall'insegnante, l'allievo acquisisce uno strumento prezioso per tutta la vita: una pratica autonoma di soli <strong>10 minuti al giorno</strong> da svolgere a casa ogni mattina. Nessuna forzatura acrobatica o rischio articolare: una sadhana adatta a qualsiasi età e condizione fisica.",
         style_btn_trial: "Richiedi Info a Sorengo",
-        style_btn_courses: "I Percorsi di Studio",
-        comp_head: "Confronto: Yoga Commerciale da Palestra vs. Stile Kayakalpa Tradizionale",
-        comp_left_title: "Yoga Commerciale da Palestra",
-        comp_left_1: "Enfasi esclusiva su elasticità muscolare esteriore e contorsioni acrobatiche.",
-        comp_left_2: "Richiede lezioni lunghe e faticose (60-90 min), spesso difficili da mantenere ogni giorno.",
-        comp_left_3: "Rischio di usura articolare e distorsioni per chi non è nativamente flessibile.",
-        comp_left_4: "Privo della scienza della trasmutazione dell'energia vitale e rigenerazione cellulare.",
+        style_btn_courses: "Programmi di Studio",
+        comp_head: "Confronto: Yoga Fitness Commerciale vs. Autentico Stile Kayakalpa",
+        comp_left_title: "Yoga Fitness Commerciale",
+        comp_left_1: "Enfasi esclusiva su flessibilità muscolare superficiale e contorsioni acrobatiche.",
+        comp_left_2: "Richiede sessioni estenuanti e prolungate (60-90 min), difficili da mantenere ogni giorno.",
+        comp_left_3: "Elevato rischio di usura articolare, stiramenti legamentosi e infortuni.",
+        comp_left_4: "Privo della scienza autentica di trasmutazione dell'energia vitale e rinnovamento cellulare.",
         comp_right_title: "Stile Kayakalpa (Parvati Scuola di Yoga & Acharya)",
         comp_right_1: "Azione biologica profonda: ghiandole endocrine, telomeri e sistema nervoso autonomo.",
-        comp_right_2: "Pratica quotidiana autonoma di soli 10 minuti da eseguire a casa per tutta la vita.",
+        comp_right_2: "Pratica autonoma per tutta la vita di soli 10 minuti al giorno a casa ogni mattina.",
         comp_right_3: "Adattabile a qualsiasi corpo: non serve alcuna flessibilità acrobatica per iniziare.",
-        comp_right_4: "Diretta trasmissione dell'Acharya Sooryanarayan, attivo da molti anni nel Ticino.",
-        ach_badge: "Il Maestro & L'Autorità Spirituale",
+        comp_right_4: "Trasmissione diretta dell'Acharya Sooryanarayan, attivo da molti anni in Ticino.",
+        ach_badge: "Il Maestro Spirituale & l'Autorità",
         ach_title: "Acharya Sooryanarayan",
-        ach_subtitle: "Una voce di autorevolezza indiscussa nel panorama delle scienze yogiche tradizionali, che trasmette l'insegnamento vivente senza compromessi commerciali né misticismi astratti.",
+        ach_subtitle: "Un'autorità indiscussa nelle scienze tradizionali dello yoga, che trasmette un insegnamento vivente privo di compromessi commerciali o sterili dogmi.",
         ach_name: "Acharya Sooryanarayan",
-        ach_label: "Precettore Spirituale • Maestro di Kayakalpa Yoga & Kundalini",
+        ach_label: "Guida Spirituale • Maestro di Kayakalpa Yoga & Kundalini",
         ach_tag: "Autorità Vivente",
         ach_link_geo: "Svizzera (Lugano) • India (Kerala & Himalaya)",
-        ach_headline: "Dall'Ascesi Himalayana e Rishikesh all'Insegnamento in Svizzera",
         ach_bio_title: "Oltre 40 Anni di Sadhana Ininterrotta e Trasmissione Diretta",
-        ach_bio_1: "L'<strong>Acharya Sooryanarayan</strong> (Acharya Sooryanarayan) è nato nella terra spirituale del Kerala, formatosi fin dall'infanzia nei saperi tradizionali dei templi e della natura sacra. Spinto dalla sete di comprensione profonda della coscienza, ha trascorso anni di rigorosa ascesi (<em>tapasya</em>) e silenzio nelle vette e nelle grotte dell'Himalaya, ed è stato docente presso la prestigiosa <em>Yoga Vedanta Forest Academy</em> allo Sivananda Ashram di Rishikesh.",
-        ach_bio_p1: "Nato nel cuore dell'India meridionale in una stirpe profondamente radicata nelle scienze vediche e siddha, l'<strong>Acharya Sooryanarayan</strong> ha dedicato l'intera esistenza alla disciplina spirituale rigorosa, alla purificazione della colonna vertebrale e al risveglio della bio-energia. Ha completato lunghi periodi di ritiro e tapasya solitaria tra le foreste del Kerala e le vette dell'Himalaya.",
-        ach_bio_2: "Quale autentica autorità nel metodo Kayakalpa e nel Maha Kundalini Yoga, l'Acharya non insegna teorie generiche: trasmette una disciplina esatta che agisce direttamente sulle cellule del corpo. Guida da molti anni <strong>Parvati Scuola di Yoga</strong> a Sorengo (Lugano), alternando le lezioni in Ticino con i ritiri all'ashram Santhivanam in India.",
-        ach_bio_p2: "Contrariamente alla tendenza contemporanea di ridurre lo yoga a sequenze aerobiche o a brevetti occidentali, l'Acharya insegna lo stile <strong>Kayakalpa Yoga</strong> secondo i canoni originali dei Siddha: una trasmissione da maestro a discepolo (<em>Guru-Shishya Parampara</em>) che unisce fisiologia sottile, controllo del respiro e trasmutazione dell'energia vitale.",
-        ach_quote: "\"Non insegniamo lo yoga per compiere posture acrobatiche esteriori. Vi insegniamo a sedervi in silenzio con voi stessi, permettere alle cellule del corpo di rigenerarsi e risvegliare la consapevolezza di chi siete veramente prima di ogni pensiero.\"",
+        ach_bio_p1: "Nato nel cuore spirituale dell'India meridionale in una stirpe profondamente radicata nelle scienze vediche e siddha, l'<strong>Acharya Sooryanarayan</strong> ha consacrato l'intera esistenza alla disciplina spirituale rigorosa, alla purificazione della colonna vertebrale e al risveglio della bio-energia vitale. Ha trascorso lunghi periodi di sadhana solitaria e tapasya nelle foreste sacre del Kerala e nelle caverne dell'Himalaya.",
+        ach_bio_p2: "Contrariamente alla tendenza contemporanea di ridurre lo yoga a ginnastica aerobica, l'Acharya trasmette l'autentico <strong>Kayakalpa Yoga</strong> secondo i canoni originali dei Siddha: una trasmissione da maestro a discepolo (<em>Guru-Shishya Parampara</em>) che unisce fisiologia sottile, controllo del respiro e trasmutazione dell'energia vitale.",
+        ach_quote: "\"Non insegniamo lo yoga per stupire con posizioni acrobatiche. Ti insegniamo a sederti con te stesso in silenzio, a permettere alle cellule di rigenerarsi e a comprendere chi sei prima che sorga qualsiasi pensiero.\"",
         ach_author: "— Acharya Sooryanarayan",
-        ach_notice: "Lezioni, consultazioni individuali e ritiri guidati dall'Acharya",
+        ach_notice: "Lezioni, consulti individuali e ritiri guidati dall'Acharya",
         ach_cta: "Prenota Incontro con l'Acharya",
-        dual_badge: "Due Santuari • Un'Unica Guida Autorevole",
-        dual_title: "Lezioni dell'Acharya a Sorengo-Lugano e in India",
-        dual_subtitle: "Un ponte diretto e ininterrotto che unisce la quiete del Canton Ticino alle radici millenarie del Kerala: ecco come puoi praticare sotto la guida diretta dell'Acharya.",
+        dual_badge: "Due Santuari • Una Sola Autorità Vivente",
+        dual_title: "Le Lezioni dell'Acharya a Sorengo-Lugano & in India",
+        dual_subtitle: "Un ponte diretto che unisce la serenità del Canton Ticino alle radici millenarie vediche del Kerala: fai esperienza diretta con l'Acharya.",
         dual_lugano_badge: "🇨🇭 Sorengo-Lugano, Svizzera",
         dual_lugano_subtitle: "Parvati Scuola di Yoga",
         dual_lugano_title: "Insegnamenti & Pratica a Parvati Scuola di Yoga",
-        dual_lugano_desc: "Presso la sede di Via Ponte Tresa 7B a Sorengo (Lugano), l'Acharya Sooryanarayan guida:",
-        dual_lugano_p1: "<strong>Masterclass Intensive di Kayakalpa</strong>: Trasmissione della tecnica autentica, bandha e correzione posturale diretta.",
-        dual_lugano_p2: "<strong>Maha Kundalini Yoga & Pranayama</strong>: Risveglio dell'energia vitale, allineamento dei chakra e chiarezza mentale.",
-        dual_lugano_p3: "<strong>Consultazioni & Sedute Individuali</strong>: Consigli personalizzati di sadhana quotidiana, karma reading e riequilibrio bio-energetico.",
+        dual_lugano_desc: "Presso la sede in Via Ponte Tresa 7B a Sorengo (Lugano), l'Acharya Sooryanarayan guida regolarmente:",
+        dual_lugano_p1: "<strong>Masterclass Intensive di Kayakalpa</strong>: Trasmissione della tecnica originale, bandhas e allineamento posturale individuale.",
+        dual_lugano_p2: "<strong>Maha Kundalini Yoga & Pranayama</strong>: Risveglio del prana vitale, purificazione dei chakra e lucidità mentale.",
+        dual_lugano_p3: "<strong>Consulti & Sedute Individuali</strong>: Sadhana personalizzata per la casa, lettura karmica e riequilibrio bio-energetico.",
         dual_lugano_loc: "Via Ponte Tresa 7B, 6924 Sorengo",
         dual_btn_lugano: "Partecipa a Sorengo",
         dual_india_badge: "🇮🇳 Kerala, India",
         dual_india_subtitle: "Santhivanam Ashram",
         dual_india_title: "Ritiri Residenziali a Santhivanam Ashram",
-        dual_india_desc: "Per gli allievi della scuola Parvati che desiderano immergersi completamente nella terra d'origine:",
-        dual_india_p1: "<strong>Sadhana Residenziale Immersiva</strong>: Periodi di pratica nella quiete della natura sacra di Kanakamala (Thrissur, Kerala).",
-        dual_india_p2: "<strong>Pratiche di Silenzio (Mauna)</strong>: Rigenerazione cellulare profonda lontani dalle stimolazioni caotiche moderne.",
-        dual_india_p3: "<strong>Nutrizione Ayurvedica Pura</strong>: Cibo satttvico preparato secondo gli antichi principi trasmessi dall'Acharya.",
+        dual_india_desc: "Per gli allievi di Parvati desiderosi di un'immersione residenziale profonda nella terra d'origine:",
+        dual_india_p1: "<strong>Sadhana Residenziale Immersiva</strong>: Pratica intensiva nella natura sacra di Kanakamala (Thrissur, Kerala).",
+        dual_india_p2: "<strong>Silenzio Nobile (Mauna)</strong>: Rigenerazione cellulare profonda lontani dalle stimolazioni digitali della vita quotidiana.",
+        dual_india_p3: "<strong>Nutrizione Ayurvedica Pura</strong>: Pasti sattvici tradizionali preparati secondo i principi dell'Acharya.",
         dual_india_loc: "Kanakamala, Kerala • India",
-        dual_btn_india: "Info Ritiri India",
-        scuola_tag: "Punto di Riferimento Spirituale nel Canton Ticino",
+        dual_btn_india: "Info Ritiri in India",
+        scuola_tag: "Punto di Riferimento Spirituale in Canton Ticino",
         scuola_title_1: "Parvati Scuola di Yoga:",
-        scuola_title_2: "Un'Oasi di Tradizione Autentica a Lugano.",
-        scuola_desc_1: "Attiva da molti anni a Sorengo (Lugano), <strong>Parvati Scuola di Yoga</strong> non è una palestra o un centro di fitness usa-e-getta. È un luogo di raccoglimento dove la saggezza ancestrale trasmessa dall’Acharya incontra la vita quotidiana di chi cerca salute, vitalità e pace profonda.",
-        scuola_desc_2: "Ogni lezione è tenuta a numero chiuso per garantire la massima attenzione alle esigenze individuali, alla cura della colonna vertebrale e alla corretta respirazione.",
+        scuola_title_2: "Un Autentico Santuario a Lugano.",
+        scuola_desc_1: "Attiva da molti anni a Sorengo (Lugano), <strong>Parvati Scuola di Yoga</strong> non è una palestra commerciale o una catena di fitness. È uno spazio protetto di calma e purezza dove la sapienza ancestrale insegnata dall'Acharya arricchisce la vita quotidiana di chi cerca salute, vitalità e pace interiore.",
+        scuola_desc_2: "Ogni lezione è a numero chiuso per garantire la massima attenzione individuale, la cura della colonna vertebrale e la corretta respirazione.",
         scuola_feat_1_title: "Piccoli Gruppi",
-        scuola_feat_1_desc: "Spazio intimo per correzioni attente da parte di insegnanti con autentica formazione tradizionale.",
-        scuola_feat_2_title: "Per Ogni Età",
-        scuola_feat_2_desc: "Nessuna flessibilità acrobatica richiesta: il percorso è graduale, sicuro e rispettoso del corpo.",
-        scuola_feat_3_title: "Ambiente Sereno",
-        scuola_feat_3_desc: "Pavimenti in legno, atmosfera di silenzio, tappetini e cuscini a disposizione, facilità di parcheggio e mezzi.",
-        scuola_cta_trial: "Prenota una Prova o Richiedi Info",
-        scuola_cta_where: "Dove Siamo a Sorengo-Lugano",
-        caption_studio: "Studio Parvati &bull; Atmosfera di Raccoglimento",
-        caption_lake: "Lugano, Ceresio",
+        scuola_feat_1_desc: "Gruppi intimi con attenzione meticolosa guidata da maestri di solida formazione tradizionale.",
+        scuola_feat_2_title: "Tutte le Età e Fisici",
+        scuola_feat_2_desc: "Nessuna flessibilità o acrobazia richiesta: il percorso è graduale, sicuro e rispettoso del corpo.",
+        scuola_feat_3_title: "Santuario di Pace",
+        scuola_feat_3_desc: "Pavimenti in legno, silenzio rigenerante, tappetini e supporti a disposizione, comodo parcheggio e mezzi.",
+        scuola_cta_trial: "Prenota Lezione di Prova",
+        scuola_cta_where: "La Nostra Sede a Sorengo-Lugano",
+        caption_studio: "Studio Parvati &bull; Atmosfera di Pace",
+        caption_lake: "Lugano, Lago Ceresio",
         caption_spine: "Rigenerazione Spinale",
         courses_badge: "Corsi & Programmi a Lugano",
-        courses_title: "Trova il Tuo Percorso di Pratica",
-        courses_subtitle: "Proponiamo sessioni continuative, corsi intensivi di iniziazione al Kayakalpa Yoga e percorsi individuali guidati dall'Acharya Sooryanarayan.",
+        courses_title: "Trova la Tua Dimensione di Pratica",
+        courses_subtitle: "Offriamo corsi regolari settimanali, percorsi intensivi di iniziazione al Kayakalpa e sessioni individuali con l'Acharya Sooryanarayan.",
         c1_badge: "Iniziazione & Fondamenti",
-        c1_category: "Metodo Speciale",
+        c1_category: "Metodo Distintivo",
         c1_title: "Iniziazione al Kayakalpa Yoga",
-        c1_desc: "Ciclo di trasmissione completa che insegna le posture esatte, i bandha e la respirazione cellulare. Include la guida per la sadhana autonoma di 10 minuti al giorno a casa ogni mattina.",
-        c1_item1: "Trasmissione diretta e correzione individuale",
-        c1_item2: "Aperto a tutti senza limiti di flessibilità",
-        c1_item3: "Autonomia duratura per la pratica a casa",
-        btn_book_course: "Iscriviti o Richiedi Info",
-        c2_category: "Pratica Continuativa",
+        c1_desc: "Ciclo completo di trasmissione teorico-pratica delle posture, bandha e respirazioni cellulari. Include il metodo autonomo per la pratica quotidiana di 10 minuti a casa ogni mattina.",
+        c1_item1: "Trasmissione diretta e allineamento individuale",
+        c1_item2: "Adatto a tutti senza prerequisiti di flessibilità",
+        c1_item3: "Autonomia a vita per la pratica quotidiana a casa",
+        c2_badge: "Pratica Continua",
+        c2_category: "Lezioni Settimanali",
         c2_title: "Hatha Yoga Tradizionale",
-        c2_desc: "Classi continue di allineamento posturale, decompressione della colonna, apertura del bacino e pranayama. Ideale per chi passa molte ore seduto e desidera ritrovare vitalità e mobilità naturale.",
+        c2_desc: "Classi continuative dedicate all'allineamento posturale, alla decompressione della colonna, all'apertura del bacino e al pranayama. Ideale per chi lavora al computer e desidera ritrovare mobilità ed energia.",
         c2_item1: "Sessioni mattutine, pomeridiane e serali",
-        c2_item2: "Correzioni attente in piccoli gruppi",
-        c2_item3: "Decompressione spinale e allungamento dolce",
-        btn_trial_free: "Richiedi Lezione di Prova",
-        c3_category: "Energia Sottile & Silenzio",
+        c2_item2: "Correzioni posturali accurate in piccoli gruppi",
+        c2_item3: "Decompressione e allungamento della colonna",
+        c3_badge: "Energia Sottile & Silenzio",
+        c3_category: "Profondità Interiore",
         c3_title: "Maha Kundalini & Meditazione",
-        c3_desc: "Pratiche di quiete mentale, respirazione pranica avanzata, risveglio dei chakra e rilassamento profondo del sistema nervoso autonomo. Efficace per dissolvere stress, ansia e stanchezza cronica.",
+        c3_desc: "Calma mentale profonda, tecniche avanzate di respiro pranico, risveglio dei chakra e rilassamento del sistema nervoso autonomo. Molto efficace contro stanchezza cronica, ansia e stress.",
         c3_item1: "Maha Kundalini Pranayama e concentrazione",
-        c3_item2: "Rilassamento neuro-muscolare e calma del Sé",
-        c3_item3: "Nessuna esperienza preliminare richiesta",
-        booking_badge: "Inizia Ora il Tuo Cammino",
+        c3_item2: "Rilassamento neuromuscolare e silenzio interiore",
+        c3_item3: "Nessuna esperienza pregressa richiesta",
+        btn_book_course: "Iscriviti o Richiedi Info",
+        btn_trial_free: "Richiedi Lezione di Prova",
+        booking_badge: "Inizia il Tuo Percorso",
         booking_title: "Contatta Parvati Scuola di Yoga o Prenota una Prova",
-        booking_subtitle: "Senza alcun impegno. Parlaci delle tue esigenze di salute o di pratica e sperimenta la potenza e la dolcezza del metodo Kayakalpa.",
+        booking_subtitle: "Senza alcun impegno. Raccontaci i tuoi obiettivi fisici o spirituali e vieni a sperimentare la profondità e dolcezza del metodo Kayakalpa.",
         booking_left_tag: "Parvati Scuola di Yoga",
-        booking_left_title: "Ti Aspettiamo a Sorengo-Lugano",
-        booking_left_desc: "Che tu sia un principiante o un ricercatore esperto alla ricerca dell'autentica alchimia interiore, troverai uno spazio protetto, accogliente e senza giudizio.",
-        booking_info_addr_label: "Sede dello Studio",
+        booking_left_title: "Ti Diamo il Benvenuto a Sorengo-Lugano",
+        booking_left_desc: "Che tu sia alle primissime armi o un praticante esperto alla ricerca dell'alchimia interna, troverai uno spazio protetto, accogliente e privo di giudizio.",
+        booking_info_addr_label: "Sede Studio",
         booking_info_addr_val: "Via Ponte Tresa 7B, 6924 Sorengo, Svizzera",
-        booking_info_wa_label: "WhatsApp Studio Diretto",
+        booking_info_wa_label: "WhatsApp Diretto dello Studio",
         booking_info_phone_label: "Telefono Studio",
-        wa_quick_label: "Vuoi scriverci direttamente su WhatsApp in pochi secondi?",
+        booking_info_email_label: "Email",
+        wa_quick_label: "Vuoi scriverci direttamente su WhatsApp in un attimo?",
         wa_quick_btn: "Scrivici su WhatsApp (+41 79 468 32 58)",
         form_name: "Nome e Cognome *",
         form_phone: "Telefono / WhatsApp *",
         form_email: "Email *",
-        form_course: "Interesse *",
-        form_notes: "Messaggio o Esigenze di Salute (opzionale)",
+        form_course: "Cosa ti interessa? *",
+        form_notes: "Messaggio o Esigenze Fisiche (facoltativo)",
         form_submit: "Invia Richiesta di Contatto o Prova",
-        form_privacy: "I tuoi dati sono riservati e protetti. Ti contatteremo al più presto.",
-        form_success_title: "Grazie! La tua richiesta è stata ricevuta.",
-        form_success_desc: "Ti contatteremo a breve per confermare il tuo appuntamento o le informazioni richieste.",
-        form_success_wa: "Conferma subito via WhatsApp",
+        form_privacy: "I tuoi dati saranno trattati con la massima riservatezza. Rispondiamo con sollecitudine.",
+        form_success_title: "Grazie! La tua richiesta è stata registrata con successo.",
+        form_success_desc: "Ti risponderemo a breve per confermare il tuo appuntamento o le informazioni richieste.",
+        form_success_wa: "Conferma subito su WhatsApp",
         loc_badge: "Vieni a Trovarci",
         loc_title: "Parvati Scuola di Yoga a Sorengo-Lugano",
-        loc_desc: "Nel Canton Ticino, a Sorengo vicino a Lugano, la scuola offre uno spazio silenzioso e protetto per staccare dal ritmo frenetico quotidiano e rigenerare le proprie energie vitali.",
+        loc_desc: "Nel Canton Ticino, a Sorengo a due passi dal centro di Lugano, la scuola offre una vera oasi di quiete dove staccare dai ritmi frenetici e ritrovare se stessi.",
         loc_addr_title: "Indirizzo dello Studio",
-        loc_trans_title: "Accessibilità & Trasporti",
-        loc_trans_desc: "Facilmente raggiungibile da Lugano Centro, trenino FLP (Lugano-Ponte Tresa, fermata Sorengo), bus e parcheggi disponibili.",
+        loc_addr_val: "Via Ponte Tresa 7B, 6924 Sorengo (Lugano), Svizzera",
+        loc_trans_title: "Accessibilità & Mezzi",
+        loc_trans_desc: "Comodamente raggiungibile dal centro di Lugano, trenino FLP (Lugano-Ponte Tresa, fermata Sorengo), bus di linea e comodi parcheggi nelle immediate vicinanze.",
         loc_contact_title: "Contatto Diretto & WhatsApp",
+        loc_contact_details: "WhatsApp / Mobile: <a href=\"https://wa.me/41794683258\" class=\"text-emerald-600 font-bold hover:underline\">+41 79 468 32 58</a> &bull; Tel: <a href=\"tel:+41919945068\" class=\"hover:underline\">+41 91 994 50 68</a><br />Email: <a href=\"mailto:kayakalpayogam@gmail.com\" class=\"hover:text-saffron transition underline decoration-sandstone underline-offset-2\">kayakalpayogam@gmail.com</a>",
         loc_btn_trial: "Richiedi Info o Prova",
+        loc_btn_wa: "WhatsApp Studio (+41 79 468 32 58)",
         loc_tag: "Scuola Parvati",
-        loc_quote: "\"Un luogo dove il tempo rallenta, il respiro ritrova la sua vastità e le cellule si rigenerano.\"",
+        loc_quote: "\"Uno spazio in cui il tempo rallenta, il respiro ritrova la sua vastità e le cellule si rigenerano.\"",
         loc_caption: "Parvati Scuola di Yoga &bull; Sorengo (Lugano), Canton Ticino",
-        loc_footer_left: "Lezioni e corsi a Sorengo",
+        loc_footer_left: "Corsi e seminari a Sorengo",
         loc_footer_right: "Via Ponte Tresa 7B, Sorengo",
         footer_school_subtitle: "Parvati Scuola di Yoga &bull; Sorengo-Lugano & India",
-        footer_school_desc: "Attiva da molti anni nel Canton Ticino per l'autentico ringiovanimento cellulare, la salute della colonna vertebrale e la realizzazione interiore sotto la guida dell'Acharya Sooryanarayan.",
+        footer_school_desc: "Attiva da molti anni in Canton Ticino per l'autentica rigenerazione cellulare, la salute della colonna vertebrale e la realizzazione interiore sotto la guida dell'Acharya Sooryanarayan.",
         footer_school_tagline: "Kayakalpayogam.com &bull; Parvati Scuola di Yoga, Sorengo, Lugano, Svizzera.",
         footer_nav_heading: "Navigazione",
-        footer_sanc_heading: "Due Santuari Viventi",
+        footer_sanc_heading: "I Due Santuari Viventi",
         footer_sanc_switzerland: "<strong>🇨🇭 Svizzera:</strong> Parvati Scuola di Yoga, Via Ponte Tresa 7B, 6924 Sorengo (Lugano)",
         footer_sanc_india: "<strong>🇮🇳 India:</strong> Santhivanam Yoga Ashram, Kanakamala (Kerala)",
-        footer_copyright: "&copy; Parvati Scuola di Yoga &bull; Kayakalpayogam.com. Tutti i diritti riservati.",
-        footer_back_to_top: "Torna all'Inizio &uarr;",
-        nav_home: "Home",
-        nav_back_home: "Torna alla Home",
-        next_chapter_prefix: "Prosegui a:",
-        bc_home: "Home",
-        banner_style_title: "Lo Stile Kayakalpa: La Rigenerazione Cellulare",
-        banner_ach_title: "L'Acharya Sooryanarayan: Autorità Spirituale Vivente",
-        banner_dual_title: "I Due Santuari: Sorengo-Lugano & Kerala (India)",
-        banner_scuola_title: "Parvati Scuola di Yoga: Il Santuario a Sorengo",
-        banner_corsi_title: "Corsi, Orari & Ritiri di Pratica",
-        banner_contact_title: "Contatti & Prenotazioni a Sorengo-Lugano",
-        portal_section_badge: "I Sentieri di Kayakalpa",
-        portal_section_title: "Esplora la Scuola & gli Insegnamenti",
-        portal_section_subtitle: "Seleziona un percorso per approfondire lo stile, la biografia dell'Acharya, i santuari o i corsi a Sorengo-Lugano.",
-        portal_card_1_title: "Lo Stile Kayakalpa",
-        portal_card_1_desc: "Alchimia millenaria dei Siddha: rigenerazione vertebrale, giovinezza cellulare ed equilibrio dei 7 chakra.",
-        portal_card_1_btn: "Entra nello Stile &rarr;",
-        portal_card_2_title: "L'Acharya Sooryanarayan",
-        portal_card_2_desc: "Autorità spirituale vivente con oltre 40 anni di tapasya e trasmissione diretta da maestro a discepolo.",
-        portal_card_2_btn: "Incontra l'Acharya &rarr;",
-        portal_card_3_title: "I Due Santuari",
-        portal_card_3_desc: "Il ponte spirituale tra Sorengo-Lugano in Svizzera e Santhivanam Ashram in Kerala (India).",
-        portal_card_3_btn: "Scopri i Santuari &rarr;",
-        portal_card_4_title: "Parvati Scuola di Yoga",
-        portal_card_4_desc: "Lo studio storico a Sorengo (Canton Ticino): raccoglimento, silenzio e percorsi seguiti individualmente.",
-        portal_card_4_btn: "Visita la Scuola &rarr;",
-        portal_card_5_title: "Corsi & Pratica",
-        portal_card_5_desc: "Corsi per principianti, rigenerazione della colonna, kundalini e ritiri intensivi in India.",
-        portal_card_5_btn: "Vedi Corsi & Orari &rarr;",
-        portal_card_6_title: "Contatti & Prenotazioni",
-        portal_card_6_desc: "Richiedi una lezione di prova gratuita a Sorengo o contattaci direttamente via WhatsApp.",
-        portal_card_6_btn: "Contatta lo Studio &rarr;",
-        home_blessing_title: "La Parola dell'Acharya",
-        home_blessing_text: "\"La vera giovinezza non è un'illusione esteriore, ma la purificazione della forza vitale che risiede nella colonna vertebrale e risveglia le cellule al loro potenziale originario.\"",
-        home_blessing_author: "&mdash; Acharya Sooryanarayan &bull; Parvati Scuola di Yoga",
-        doc_title: "Kayakalpa Yoga & Parvati Scuola di Yoga | Sorengo - Lugano & India",
-        menu_aria: "Apri Menu",
-        booking_info_email_label: "Email",
-        loc_addr_val: "Via Ponte Tresa 7B, 6924 Sorengo (Lugano), Svizzera",
-        loc_contact_details: "WhatsApp / Mob: <a href=\"https://wa.me/41794683258\" class=\"text-emerald-600 font-bold hover:underline\">+41 79 468 32 58</a> &bull; Tel: <a href=\"tel:+41919945068\" class=\"hover:underline\">+41 91 994 50 68</a><br />Email: <a href=\"mailto:kayakalpayogam@gmail.com\" class=\"hover:text-saffron transition underline decoration-sandstone underline-offset-2\">kayakalpayogam@gmail.com</a>",
-        loc_btn_wa: "WhatsApp Studio (+41 79 468 32 58)",
         footer_contact_wa: "WhatsApp Studio:",
         footer_contact_phone: "Telefono Studio:",
         footer_contact_email: "Email:",
+        footer_copyright: "&copy; Parvati Scuola di Yoga &bull; Kayakalpayogam.com. Tutti i diritti riservati.",
+        footer_back_to_top: "Torna in Cima &uarr;",
+        doc_title: "Kayakalpa Yoga & Parvati Scuola di Yoga | Sorengo - Lugano & India",
+        menu_aria: "Apri Menu",
         alt_hero: "Meditazione Kayakalpa, 7 chakra ed energia vitale nella natura sacra",
-        alt_chakra: "I 7 Chakra e la risalita dell'energia vitale nello stile Kayakalpa Yoga",
-        alt_acharya: "Acharya Sooryanarayan in meditazione, guida spirituale di Kayakalpa Yoga",
-        alt_sanctuary: "Atmosfera sacra di meditazione a Parvati Scuola di Yoga Sorengo Lugano",
-        alt_lake: "Lago di Lugano e montagne del Canton Ticino",
-        alt_spine: "Decompressione della colonna vertebrale e allineamento bio-energetico",
-        alt_contact_sanctuary: "Santuario di meditazione sul lago"
+        alt_chakra: "I 7 Chakra e la risalita della forza vitale nello stile Kayakalpa Yoga",
+        alt_acharya: "Acharya Sooryanarayan in meditazione, guida spirituale del Kayakalpa Yoga",
+        alt_sanctuary: "Atmosfera meditativa sacra presso Parvati Scuola di Yoga Sorengo Lugano",
+        alt_lake: "Lago di Lugano e alpi del Canton Ticino",
+        alt_spine: "Decompressione spinale e allineamento bio-energetico",
+        alt_contact_sanctuary: "Santuario di meditazione in riva al lago"
       },
       en: {
         topbar_geo: "Switzerland 🇨🇭 (Sorengo - Lugano) &bull; India 🇮🇳 (Kerala)",
         topbar_tagline: "Direct Teachings by Acharya Sooryanarayan in Sorengo-Lugano (Parvati Yoga School) & India (Santhivanam Ashram)",
         topbar_wa: "WhatsApp Studio:",
         brand_subtitle: "Acharya Sooryanarayan &bull; Parvati Yoga School",
+        nav_home: "Home",
         nav_style: "The Kayakalpa Style",
         nav_acharya: "The Acharya (Authority)",
         nav_dual: "Lugano & India",
@@ -1781,6 +1870,32 @@
         pillar_3_desc: "Active for many years in Sorengo-Lugano",
         pillar_4_title: "India Ashram",
         pillar_4_desc: "Residential retreats at Santhivanam (Kerala)",
+        marquee_badge: "Living Tapestry of Kayakalpa",
+        marquee_hint: "Click any perspective to explore in full detail",
+        portal_section_badge: "The Paths of Kayakalpa",
+        portal_section_title: "Explore the School & Teachings",
+        portal_section_subtitle: "Select a path to explore the style, the Acharya's lineage, the dual sanctuaries, or classes in Sorengo-Lugano.",
+        portal_card_1_title: "The Kayakalpa Style",
+        portal_card_1_desc: "Millenary Siddha alchemy: spinal rejuvenation, cellular vitality, and 7-chakra balance.",
+        portal_card_1_btn: "Enter the Style &rarr;",
+        portal_card_2_title: "Acharya Sooryanarayan",
+        portal_card_2_desc: "Living spiritual authority with over 40 years of sadhana and direct master-to-disciple lineage.",
+        portal_card_2_btn: "Meet the Acharya &rarr;",
+        portal_card_3_title: "Two Living Sanctuaries",
+        portal_card_3_desc: "The sacred bridge connecting Sorengo-Lugano (Switzerland) and Santhivanam Ashram (Kerala, India).",
+        portal_card_3_btn: "Discover Sanctuaries &rarr;",
+        portal_card_4_title: "Parvati Yoga School",
+        portal_card_4_desc: "The historic studio in Sorengo (Canton Ticino): stillness, sacred focus, and individualized guidance.",
+        portal_card_4_btn: "Visit the School &rarr;",
+        portal_card_5_title: "Courses & Practice",
+        portal_card_5_desc: "Beginner courses, spinal regeneration, maha kundalini, and residential retreats in India.",
+        portal_card_5_btn: "View Courses & Schedule &rarr;",
+        portal_card_6_title: "Contact & Booking",
+        portal_card_6_desc: "Request a free trial class in Sorengo or connect directly with our studio on WhatsApp.",
+        portal_card_6_btn: "Contact the Studio &rarr;",
+        home_blessing_title: "Message from the Acharya",
+        home_blessing_text: "\"True youthfulness is not an outward illusion, but the purification of the vital life force residing along the spine, awakening every cell to its primal potential.\"",
+        home_blessing_author: "&mdash; Acharya Sooryanarayan &bull; Parvati Yoga School",
         style_badge: "Southern Indian Siddha Lineage",
         style_title: "The Kayakalpa Style: Beyond Ordinary Gymnastics",
         style_subtitle: "In Sanskrit, Kaya denotes the body-vessel and Kalpa denotes alchemical renewal. This style differs radically from modern commercial yoga: it is an internal physiological and spiritual science formulated to preserve cellular youth, enhance immunity, and elevate consciousness.",
@@ -1810,11 +1925,8 @@
         ach_label: "Spiritual Preceptor • Master of Kayakalpa Yoga & Kundalini",
         ach_tag: "Living Authority",
         ach_link_geo: "Switzerland (Lugano) • India (Kerala & Himalayas)",
-        ach_headline: "From Himalayan Caves and Rishikesh to Teaching in Switzerland",
         ach_bio_title: "Over 40 Years of Unbroken Sadhana and Direct Transmission",
-        ach_bio_1: "<strong>Acharya Sooryanarayan</strong> (Acharya Sooryanarayan) was born into the sacred soil of Kerala, immersed from childhood in traditional temple sciences and holy nature groves. Driven by an uncompromising quest for consciousness, he spent years in rigorous <em>tapasya</em> and silence in Himalayan caves, and taught at the prestigious <em>Yoga Vedanta Forest Academy</em> at Sivananda Ashram in Rishikesh.",
         ach_bio_p1: "Born in the spiritual heart of South India into a lineage deeply steeped in Vedic and Siddha sciences, <strong>Acharya Sooryanarayan</strong> has dedicated his entire life to rigorous spiritual discipline, spinal purification, and the awakening of vital bio-energy. He completed long periods of solitary sadhana and tapasya in Kerala's sacred groves and high Himalayan caves.",
-        ach_bio_2: "As a living authority on Kayakalpa and Maha Kundalini Yoga, Acharya does not teach vague theories: he transmits an exact physiological science acting directly upon cells. He has guided <strong>Parvati Yoga School</strong> in Sorengo (Lugano) for many years, alternating teachings in Switzerland with residential retreats at Santhivanam Ashram in India.",
         ach_bio_p2: "Contrary to the contemporary trend of reducing yoga to aerobic gymnastics or Western fitness trends, Acharya imparts authentic <strong>Kayakalpa Yoga</strong> per original Siddha canons: direct master-to-disciple transmission (<em>Guru-Shishya Parampara</em>) uniting subtle physiology, breath control, and vital life-force transmutation.",
         ach_quote: "\"We do not teach yoga for exterior acrobatic poses. We teach you how to sit with yourself in stillness, allow the cells to regenerate, and realize who you truly are before any thought arises.\"",
         ach_author: "— Acharya Sooryanarayan",
@@ -1867,20 +1979,22 @@
         c1_item1: "Direct transmission & individual alignment",
         c1_item2: "Open to all without flexibility prerequisites",
         c1_item3: "Lifelong autonomy for home practice",
-        btn_book_course: "Enroll or Inquire",
-        c2_category: "Ongoing Practice",
+        c2_badge: "Ongoing Practice",
+        c2_category: "Weekly Classes",
         c2_title: "Traditional Hatha Yoga",
         c2_desc: "Ongoing classes for postural alignment, spinal decompression, hip release, and pranayama. Ideal for desk workers wanting to restore mobility and natural vitality.",
         c2_item1: "Morning, afternoon, and evening sessions",
         c2_item2: "Attentive hands-on corrections in small groups",
         c2_item3: "Gentle spinal decompression and lengthening",
-        btn_trial_free: "Request Trial Class",
-        c3_category: "Subtle Energy & Stillness",
+        c3_badge: "Subtle Energy & Stillness",
+        c3_category: "Inner Depths",
         c3_title: "Maha Kundalini & Meditation",
         c3_desc: "Mental quietude, advanced pranic breathwork, chakra awakening, and deep autonomic nervous system reset. Highly effective against chronic fatigue, stress, and anxiety.",
         c3_item1: "Maha Kundalini Pranayama and concentration",
         c3_item2: "Neuromuscular relaxation and inner stillness",
         c3_item3: "No prior meditation experience required",
+        btn_book_course: "Enroll or Inquire",
+        btn_trial_free: "Request Trial Class",
         booking_badge: "Begin Your Journey",
         booking_title: "Contact Parvati Yoga School or Book a Trial",
         booking_subtitle: "With zero commitment. Share your health or practice goals and experience the depth and gentleness of the Kayakalpa method.",
@@ -1891,6 +2005,7 @@
         booking_info_addr_val: "Via Ponte Tresa 7B, 6924 Sorengo, Switzerland",
         booking_info_wa_label: "Direct Studio WhatsApp",
         booking_info_phone_label: "Studio Phone",
+        booking_info_email_label: "Email",
         wa_quick_label: "Prefer to message directly on WhatsApp in seconds?",
         wa_quick_btn: "Message on WhatsApp (+41 79 468 32 58)",
         form_name: "Full Name *",
@@ -1907,10 +2022,13 @@
         loc_title: "Parvati Yoga School in Sorengo-Lugano",
         loc_desc: "In Canton Ticino, in Sorengo right by Lugano, the school provides a quiet haven to step away from daily rush and restore vital energies.",
         loc_addr_title: "Studio Address",
+        loc_addr_val: "Via Ponte Tresa 7B, 6924 Sorengo (Lugano), Switzerland",
         loc_trans_title: "Accessibility & Transit",
         loc_trans_desc: "Easily accessible from central Lugano, FLP train (Lugano-Ponte Tresa, Sorengo stop), local buses, and parking.",
         loc_contact_title: "Direct Contact & WhatsApp",
+        loc_contact_details: "WhatsApp / Mobile: <a href=\"https://wa.me/41794683258\" class=\"text-emerald-600 font-bold hover:underline\">+41 79 468 32 58</a> &bull; Phone: <a href=\"tel:+41919945068\" class=\"hover:underline\">+41 91 994 50 68</a><br />Email: <a href=\"mailto:kayakalpayogam@gmail.com\" class=\"hover:text-saffron transition underline decoration-sandstone underline-offset-2\">kayakalpayogam@gmail.com</a>",
         loc_btn_trial: "Request Info or Trial",
+        loc_btn_wa: "WhatsApp Studio (+41 79 468 32 58)",
         loc_tag: "Parvati School",
         loc_quote: "\"A sanctuary where time slows, breath regains its vastness, and cells regenerate.\"",
         loc_caption: "Parvati Yoga School &bull; Sorengo (Lugano), Canton Ticino",
@@ -1923,51 +2041,13 @@
         footer_sanc_heading: "Two Living Sanctuaries",
         footer_sanc_switzerland: "<strong>🇨🇭 Switzerland:</strong> Parvati Yoga School, Via Ponte Tresa 7B, 6924 Sorengo (Lugano)",
         footer_sanc_india: "<strong>🇮🇳 India:</strong> Santhivanam Yoga Ashram, Kanakamala (Kerala)",
-        footer_copyright: "&copy; Parvati Yoga School &bull; Kayakalpayogam.com. All rights reserved.",
-        footer_back_to_top: "Back to Top &uarr;",
-        nav_home: "Home",
-        nav_back_home: "Back to Home",
-        next_chapter_prefix: "Next Chapter:",
-        bc_home: "Home",
-        banner_style_title: "The Kayakalpa Style: Cellular Rejuvenation",
-        banner_ach_title: "Acharya Sooryanarayan: Living Spiritual Authority",
-        banner_dual_title: "Two Living Sanctuaries: Sorengo-Lugano & Kerala (India)",
-        banner_scuola_title: "Parvati Yoga School: The Sanctuary in Sorengo",
-        banner_corsi_title: "Courses, Schedules & Immersion Retreats",
-        banner_contact_title: "Contact & Bookings in Sorengo-Lugano",
-        portal_section_badge: "The Paths of Kayakalpa",
-        portal_section_title: "Explore the School & Teachings",
-        portal_section_subtitle: "Select a path to explore the style, the Acharya's lineage, the dual sanctuaries, or classes in Sorengo-Lugano.",
-        portal_card_1_title: "The Kayakalpa Style",
-        portal_card_1_desc: "Millenary Siddha alchemy: spinal rejuvenation, cellular vitality, and 7-chakra balance.",
-        portal_card_1_btn: "Enter the Style &rarr;",
-        portal_card_2_title: "Acharya Sooryanarayan",
-        portal_card_2_desc: "Living spiritual authority with over 40 years of sadhana and direct master-to-disciple lineage.",
-        portal_card_2_btn: "Meet the Acharya &rarr;",
-        portal_card_3_title: "Two Living Sanctuaries",
-        portal_card_3_desc: "The sacred bridge connecting Sorengo-Lugano (Switzerland) and Santhivanam Ashram (Kerala, India).",
-        portal_card_3_btn: "Discover Sanctuaries &rarr;",
-        portal_card_4_title: "Parvati Yoga School",
-        portal_card_4_desc: "The historic studio in Sorengo (Canton Ticino): stillness, sacred focus, and individualized guidance.",
-        portal_card_4_btn: "Visit the School &rarr;",
-        portal_card_5_title: "Courses & Practice",
-        portal_card_5_desc: "Beginner courses, spinal regeneration, maha kundalini, and residential retreats in India.",
-        portal_card_5_btn: "View Courses & Schedule &rarr;",
-        portal_card_6_title: "Contact & Booking",
-        portal_card_6_desc: "Request a free trial class in Sorengo or connect directly with our studio on WhatsApp.",
-        portal_card_6_btn: "Contact the Studio &rarr;",
-        home_blessing_title: "Message from the Acharya",
-        home_blessing_text: "\"True youthfulness is not an outward illusion, but the purification of the vital life force residing along the spine, awakening every cell to its primal potential.\"",
-        home_blessing_author: "&mdash; Acharya Sooryanarayan &bull; Parvati Yoga School",
-        doc_title: "Kayakalpa Yoga & Parvati Yoga School | Sorengo - Lugano & India",
-        menu_aria: "Open Menu",
-        booking_info_email_label: "Email",
-        loc_addr_val: "Via Ponte Tresa 7B, 6924 Sorengo (Lugano), Switzerland",
-        loc_contact_details: "WhatsApp / Mobile: <a href=\"https://wa.me/41794683258\" class=\"text-emerald-600 font-bold hover:underline\">+41 79 468 32 58</a> &bull; Phone: <a href=\"tel:+41919945068\" class=\"hover:underline\">+41 91 994 50 68</a><br />Email: <a href=\"mailto:kayakalpayogam@gmail.com\" class=\"hover:text-saffron transition underline decoration-sandstone underline-offset-2\">kayakalpayogam@gmail.com</a>",
-        loc_btn_wa: "WhatsApp Studio (+41 79 468 32 58)",
         footer_contact_wa: "WhatsApp Studio:",
         footer_contact_phone: "Studio Phone:",
         footer_contact_email: "Email:",
+        footer_copyright: "&copy; Parvati Yoga School &bull; Kayakalpayogam.com. All rights reserved.",
+        footer_back_to_top: "Back to Top &uarr;",
+        doc_title: "Kayakalpa Yoga & Parvati Yoga School | Sorengo - Lugano & India",
+        menu_aria: "Open Menu",
         alt_hero: "Kayakalpa meditation, 7 chakras and vital energy in sacred nature",
         alt_chakra: "The 7 Chakras and vital life-force ascent in Kayakalpa Yoga style",
         alt_acharya: "Acharya Sooryanarayan in meditation, spiritual preceptor of Kayakalpa Yoga",
@@ -1984,7 +2064,7 @@
       if (!translations[lang]) return;
       currentLang = lang;
       
-      // If user explicitly clicked the switcher, store explicit choice
+      // Store choice if user explicitly clicked
       if (isUserAction) {
         try {
           localStorage.setItem('kayakalpa_user_chosen_lang', lang);
@@ -2010,12 +2090,14 @@
       // Button styles
       const btnIt = document.getElementById('lang-btn-it');
       const btnEn = document.getElementById('lang-btn-en');
-      if (lang === 'it') {
-        btnIt.className = 'px-2 py-0.5 rounded text-white bg-sapphire font-bold border border-solarGold/50 transition';
-        btnEn.className = 'px-2 py-0.5 rounded text-ivory/70 hover:text-white transition';
-      } else {
-        btnEn.className = 'px-2 py-0.5 rounded text-white bg-sapphire font-bold border border-solarGold/50 transition';
-        btnIt.className = 'px-2 py-0.5 rounded text-ivory/70 hover:text-white transition';
+      if (btnIt && btnEn) {
+        if (lang === 'it') {
+          btnIt.className = 'px-2 py-0.5 rounded text-white bg-sapphire font-bold border border-solarGold/50 transition';
+          btnEn.className = 'px-2 py-0.5 rounded text-ivory/70 hover:text-white transition';
+        } else {
+          btnEn.className = 'px-2 py-0.5 rounded text-white bg-sapphire font-bold border border-solarGold/50 transition';
+          btnIt.className = 'px-2 py-0.5 rounded text-ivory/70 hover:text-white transition';
+        }
       }
 
       // Translate all data-i18n elements
@@ -2069,7 +2151,6 @@
         if (emailInput) emailInput.placeholder = placeholders[lang].email;
         if (notesInput) {
           notesInput.placeholder = placeholders[lang].notes;
-          // Adapt pre-filled course notes between languages
           if (notesInput.value.startsWith("Interesse specifico per: ") && lang === 'en') {
             const currentTitle = courseSelect && courseSelect.value ? courseSelect.value : "";
             notesInput.value = "Specific interest for: " + currentTitle;
@@ -2117,7 +2198,7 @@
         }
       } catch (e) {}
 
-      // 3. Clear legacy auto-saved key to guarantee all users land on English
+      // 3. Clear legacy auto-saved key
       try {
         localStorage.removeItem('kayakalpa_lang');
       } catch (e) {}
@@ -2128,6 +2209,11 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       setLanguage(getInitialLanguage());
+      initScrollSpy();
+      handleRoute();
+    });
+
+    window.addEventListener('hashchange', () => {
       handleRoute();
     });
   </script>
