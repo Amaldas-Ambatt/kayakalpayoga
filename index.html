@@ -211,13 +211,13 @@
 
         <!-- Desktop Navigation Links (Smooth Tapestry Anchor Links) -->
         <nav class="hidden lg:flex items-center space-x-5 text-sm font-medium text-charcoal" id="desktop-nav">
-          <a href="#hero" onclick="scrollToSection('hero'); return false;" class="nav-tab text-saffron font-bold border-b-2 border-saffron py-1.5 transition-all" data-nav="hero" data-i18n="nav_home">Home</a>
-          <a href="#lo-stile" onclick="scrollToSection('lo-stile'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="lo-stile" data-i18n="nav_style">The Kayakalpa Style</a>
-          <a href="#acharya" onclick="scrollToSection('acharya'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="acharya" data-i18n="nav_acharya">The Acharya (Authority)</a>
-          <a href="#lugano-india" onclick="scrollToSection('lugano-india'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="lugano-india" data-i18n="nav_dual">Lugano & India</a>
-          <a href="#scuola" onclick="scrollToSection('scuola'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="scuola" data-i18n="nav_scuola">Parvati Yoga School</a>
-          <a href="#corsi" onclick="scrollToSection('corsi'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="corsi" data-i18n="nav_corsi">Classes & Practice</a>
-          <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="contatti" data-i18n="nav_contatti">Contact & Studio</a>
+          <a href="#hero" class="nav-tab text-saffron font-bold border-b-2 border-saffron py-1.5 transition-all" data-nav="hero" data-i18n="nav_home">Home</a>
+          <a href="#lo-stile" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="lo-stile" data-i18n="nav_style">The Kayakalpa Style</a>
+          <a href="#acharya" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="acharya" data-i18n="nav_acharya">The Acharya (Authority)</a>
+          <a href="#lugano-india" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="lugano-india" data-i18n="nav_dual">Lugano & India</a>
+          <a href="#scuola" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="scuola" data-i18n="nav_scuola">Parvati Yoga School</a>
+          <a href="#corsi" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="corsi" data-i18n="nav_corsi">Classes & Practice</a>
+          <a href="#contatti" class="nav-tab text-charcoal hover:text-saffron font-medium border-b-2 border-transparent py-1.5 transition-all" data-nav="contatti" data-i18n="nav_contatti">Contact & Studio</a>
         </nav>
 
         <!-- CTA & Mobile Menu Toggle Button -->
@@ -228,9 +228,12 @@
           </a>
 
           <!-- Mobile Hamburger Toggle -->
-          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-cosmic hover:bg-ivoryDark transition" aria-label="Open Menu" data-i18n-aria="menu_aria">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+          <button id="mobile-menu-btn" type="button" aria-label="Toggle Navigation Menu" class="lg:hidden p-2.5 rounded-lg text-cosmic hover:bg-ivoryDark focus:outline-none transition" data-i18n-aria="menu_aria">
+            <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
           </button>
         </div>
@@ -240,16 +243,16 @@
 
     <!-- Mobile Drawer Menu -->
     <div id="mobile-menu" class="hidden lg:hidden border-t border-sandstone/60 bg-ivory px-6 py-5 space-y-3 shadow-xl">
-      <a href="#hero" onclick="scrollToSection('hero'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 text-saffron font-bold" data-nav="hero" data-i18n="nav_home">Home</a>
-      <a href="#lo-stile" onclick="scrollToSection('lo-stile'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="lo-stile" data-i18n="nav_style">The Kayakalpa Style</a>
-      <a href="#acharya" onclick="scrollToSection('acharya'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="acharya" data-i18n="nav_acharya">The Acharya (Authority)</a>
-      <a href="#lugano-india" onclick="scrollToSection('lugano-india'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="lugano-india" data-i18n="nav_dual">Lugano & India</a>
-      <a href="#scuola" onclick="scrollToSection('scuola'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="scuola" data-i18n="nav_scuola">Parvati Yoga School</a>
-      <a href="#corsi" onclick="scrollToSection('corsi'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="corsi" data-i18n="nav_corsi">Classes & Practice</a>
-      <a href="#contatti" onclick="scrollToSection('contatti'); toggleMobileMenu(); return false;" class="mobile-nav-tab block py-2 hover:text-saffron transition font-medium" data-nav="contatti" data-i18n="nav_contatti">Contact & Studio</a>
+      <a href="#hero" class="mobile-nav-tab block py-2 border-b border-sandstone/40 text-saffron font-bold" data-nav="hero" data-i18n="nav_home">Home</a>
+      <a href="#lo-stile" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="lo-stile" data-i18n="nav_style">The Kayakalpa Style</a>
+      <a href="#acharya" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="acharya" data-i18n="nav_acharya">The Acharya (Authority)</a>
+      <a href="#lugano-india" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="lugano-india" data-i18n="nav_dual">Lugano & India</a>
+      <a href="#scuola" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="scuola" data-i18n="nav_scuola">Parvati Yoga School</a>
+      <a href="#corsi" class="mobile-nav-tab block py-2 border-b border-sandstone/40 hover:text-saffron transition font-medium" data-nav="corsi" data-i18n="nav_corsi">Classes & Practice</a>
+      <a href="#contatti" class="mobile-nav-tab block py-2 hover:text-saffron transition font-medium" data-nav="contatti" data-i18n="nav_contatti">Contact & Studio</a>
       
       <div class="pt-2">
-        <a href="#contatti" onclick="scrollToSection('contatti'); toggleMobileMenu(); return false;" class="w-full text-center block px-6 py-3 rounded-full bg-gradient-to-r from-saffron to-ruby text-white font-medium text-xs uppercase tracking-wider shadow">
+        <a href="#contatti" class="mobile-cta-btn w-full text-center block px-6 py-3 rounded-full bg-gradient-to-r from-saffron to-ruby text-white font-medium text-xs uppercase tracking-wider shadow">
           <span data-i18n="nav_cta">Inquire or Book Trial</span>
         </a>
       </div>
@@ -1389,27 +1392,72 @@
 
   <!-- ==================== LOGIC & SCRIPT ==================== -->
   <script>
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      if (menu) {
-        menu.classList.toggle('hidden');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    function closeMobileMenu() {
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+        if (closeIcon) closeIcon.classList.add('hidden');
       }
+    }
+
+    function toggleMobileMenu() {
+      if (mobileMenu) {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+          if (closeIcon) closeIcon.classList.add('hidden');
+        } else {
+          closeMobileMenu();
+        }
+      }
+    }
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
     }
 
     // --- Smooth Tapestry Navigation ---
     function scrollToSection(id) {
       if (id === 'home') id = 'hero';
+      if (id === 'prenota') id = 'contatti';
       const target = document.getElementById(id);
-      if (target) {
-        const headerHeight = document.getElementById('site-header')?.offsetHeight || 80;
-        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 2;
+      if (!target) return;
+
+      const wasMenuOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
+      if (wasMenuOpen) {
+        closeMobileMenu();
+        // Wait 60ms for mobile drawer to collapse so header height is stable
+        setTimeout(() => {
+          executeScroll(target, id);
+        }, 60);
+      } else {
+        executeScroll(target, id);
+      }
+    }
+
+    function executeScroll(target, id) {
+      const header = document.getElementById('site-header');
+      const headerHeight = header ? header.offsetHeight : 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight + 2;
+
+      try {
         window.scrollTo({
-          top: targetPos,
+          top: offsetPosition,
           behavior: 'smooth'
         });
-        if (history.pushState) {
-          history.pushState(null, '', '#' + id);
-        }
+      } catch (err) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      if (history.pushState) {
+        history.pushState(null, '', '#' + id);
       }
     }
 
@@ -2211,6 +2259,30 @@
       setLanguage(getInitialLanguage());
       initScrollSpy();
       handleRoute();
+
+      // Mobile drawer links: intercept tap, close menu, and scroll smoothly to section
+      document.querySelectorAll('.mobile-nav-tab, .mobile-cta-btn').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            const targetId = href.substring(1);
+            scrollToSection(targetId);
+          }
+        });
+      });
+
+      // Desktop nav links: ensure smooth glide
+      document.querySelectorAll('.nav-tab').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            const targetId = href.substring(1);
+            scrollToSection(targetId);
+          }
+        });
+      });
     });
 
     window.addEventListener('hashchange', () => {
