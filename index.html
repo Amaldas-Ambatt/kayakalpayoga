@@ -1312,9 +1312,9 @@
             <div class="space-y-4">
               <div class="flex justify-between items-center">
                 <span class="px-3 py-1 rounded-full bg-amethyst/20 text-amethyst-light text-xs uppercase tracking-widest font-semibold" data-i18n="dual_india_badge">🇮🇳 Kerala, India</span>
-                <span class="text-xs text-ivory/60 font-serif italic" data-i18n="dual_india_subtitle">Santhivanam Ashram</span>
+                <span class="text-xs text-ivory/60 font-serif italic" data-i18n="dual_india_subtitle">Santhivanam Yoga Ashram • The Forest of Peace</span>
               </div>
-              <h3 class="font-serif text-2xl sm:text-3xl text-ivory font-normal" data-i18n="dual_india_title">Residential Retreats at Santhivanam Ashram</h3>
+              <h3 class="font-serif text-2xl sm:text-3xl text-ivory font-normal" data-i18n="dual_india_title">Residential Retreats at Santhivanam Yoga Ashram</h3>
               
               <!-- Ashram Photo Visual Preview -->
               <div class="rounded-xl overflow-hidden border border-solarGold/30 h-32 relative cursor-pointer group" onclick="openLightboxBySrc('ashram-cover.jpg', 'Santhivanam Ashram Kerala', 'Sacred residence for residential retreats in Kanakamala.')">
@@ -1324,28 +1324,43 @@
                 </div>
               </div>
 
-              <p class="text-ivory/80 text-sm leading-relaxed" data-i18n="dual_india_desc">For Parvati students desiring deep residential immersion in the land of origin:</p>
-              <ul class="text-xs sm:text-sm text-ivory/85 space-y-2">
+              <!-- Motto Quote Banner -->
+              <div class="p-3 rounded-xl bg-cosmic-deep/80 border border-solarGold/30 text-center">
+                <p class="font-serif italic text-xs sm:text-sm text-solarGold-light" data-i18n="dual_india_motto">Guiding Principle: "Merging with Nature is the Real Success"</p>
+              </div>
+
+              <p class="text-ivory/80 text-sm leading-relaxed" data-i18n="dual_india_desc">Santhivanam, meaning "The Forest of Peace," is a unique spiritual sanctuary founded by Acharya Sooryanarayan at the serene foothills of Kanakamala (Kodassery, Kerala), where nature, meditation, and self-discovery converge:</p>
+              
+              <ul class="text-xs sm:text-sm text-ivory/85 space-y-2.5">
                 <li class="flex items-start gap-2">
                   <span class="text-solarGold-light font-bold">&bull;</span>
-                  <span data-i18n="dual_india_p1"><strong>Immersive Residential Sadhana</strong>: Intensive practice in the sacred nature of Kanakamala (Thrissur, Kerala).</span>
+                  <span data-i18n="dual_india_p1"><strong>The Forest of Peace & Universal Family</strong>: Nurturing peace, kindness, and oneness with all life. Humans, animals, birds, trees, and plants are all cherished members of one universal family.</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-solarGold-light font-bold">&bull;</span>
-                  <span data-i18n="dual_india_p2"><strong>Noble Silence (Mauna)</strong>: Deep cellular renewal away from digital and worldly overstimulation.</span>
+                  <span data-i18n="dual_india_p2"><strong>Experience the Magic of Nature (7 Portals)</strong>: Touch living trees, watch seeds sprout into shoots, flowers turning into fruits, observe fish gliding in crystal ponds, peacocks in ahimsa, and bathe in natural mineral spring waters.</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-solarGold-light font-bold">&bull;</span>
-                  <span data-i18n="dual_india_p3"><strong>Pure Ayurvedic Nutrition</strong>: Wholesome sattvic meals prepared per Acharya's traditional principles.</span>
+                  <span data-i18n="dual_india_p3"><strong>Live Simply, Eat Mindfully</strong>: Wholesome traditional South Indian meals prepared with love using organic vegetables grown in the Ashram gardens, with guest participation in gardening and mindful kitchen seva.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-solarGold-light font-bold">&bull;</span>
+                  <span data-i18n="dual_india_p4"><strong>A Path to Inner Fulfilment</strong>: Embracing nature as our family dissolves loneliness into wholeness. Through silence (Mauna) and Kayakalpa yoga, subtle energy connects with infinite nature.</span>
                 </li>
               </ul>
             </div>
 
-            <div class="pt-6 border-t border-solarGold/20 mt-6 flex justify-between items-center">
+            <div class="pt-6 border-t border-solarGold/20 mt-6 flex flex-wrap gap-3 justify-between items-center">
               <span class="text-xs text-solarGold-light font-medium" data-i18n="dual_india_loc">Kanakamala, Kerala • India</span>
-              <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-solarGold to-saffron text-cosmic-deep text-xs font-bold uppercase tracking-wider transition hover:brightness-110 shadow">
-                <span data-i18n="dual_btn_india">India Retreat Info</span>
-              </a>
+              <div class="flex items-center gap-2">
+                <a href="https://santhivanam.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-full border border-solarGold/40 hover:bg-solarGold/15 text-solarGold-light text-xs font-semibold uppercase tracking-wider transition">
+                  <span data-i18n="dual_btn_santhivanam">Santhivanam.com &rarr;</span>
+                </a>
+                <a href="#contatti" onclick="scrollToSection('contatti'); return false;" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-solarGold to-saffron text-cosmic-deep text-xs font-bold uppercase tracking-wider transition hover:brightness-110 shadow">
+                  <span data-i18n="dual_btn_india">India Retreat Info</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -2377,13 +2392,16 @@
         dual_lugano_loc: "Via Ponte Tresa 7B, 6924 Sorengo",
         dual_btn_lugano: "Partecipa a Sorengo",
         dual_india_badge: "🇮🇳 Kerala, India",
-        dual_india_subtitle: "Santhivanam Ashram",
-        dual_india_title: "Ritiri Residenziali a Santhivanam Ashram",
-        dual_india_desc: "Per gli allievi di Parvati desiderosi di un'immersione residenziale profonda nella terra d'origine:",
-        dual_india_p1: "<strong>Sadhana Residenziale Immersiva</strong>: Pratica intensiva nella natura sacra di Kanakamala (Thrissur, Kerala).",
-        dual_india_p2: "<strong>Silenzio Nobile (Mauna)</strong>: Rigenerazione cellulare profonda lontani dalle stimolazioni digitali della vita quotidiana.",
-        dual_india_p3: "<strong>Nutrizione Ayurvedica Pura</strong>: Pasti sattvici tradizionali preparati secondo i principi dell'Acharya.",
+        dual_india_subtitle: "Santhivanam Yoga Ashram • La Foresta della Pace",
+        dual_india_title: "Ritiri Residenziali a Santhivanam Yoga Ashram",
+        dual_india_motto: "Principio Guida: «Fondersi con la Natura è il Vero Successo»",
+        dual_india_desc: "Santhivanam, che significa <strong>«La Foresta della Pace»</strong>, è un santuario spirituale unico fondato dall'<strong>Acharya Sooryanarayan</strong> ai piedi di Kanakamala (Kodassery, Kerala), dove natura, meditazione e risveglio interiore si uniscono in perfetta armonia:",
+        dual_india_p1: "<strong>La Foresta della Pace & Famiglia Universale</strong>: Nutrire pace, gentilezza ed empatia con ogni forma di vita — esseri umani, animali, uccelli, alberi e piante come un'unica famiglia cosmica. La vera pienezza nasce quando ci riconnettiamo a questa meravigliosa rete della vita.",
+        dual_india_p2: "<strong>La Magia della Natura (7 Portali)</strong>: Un invito a rallentare e connettersi: toccare gli alberi secolari, osservare i semi germogliare e i fiori diventare frutti, contemplare i pesci nei laghetti limpidi, ammirare pavoni danzanti e bagnarsi nelle fresche acque sorgive naturali.",
+        dual_india_p3: "<strong>Vivere Semplicemente, Mangiare Consapevolmente</strong>: Autentica cucina tradizionale dell'India del Sud preparata con amore utilizzando verdure biologiche fresche coltivate negli orti dell'ashram, con partecipazione al giardinaggio e alla preparazione del cibo (Seva).",
+        dual_india_p4: "<strong>La Via della Pienezza Interiore</strong>: Quando abbracciamo la natura come nostra famiglia, la solitudine svanisce ed emerge la totalità. Attraverso il silenzio nobile (Mauna), la meditazione e lo yoga Kayakalpa, l'energia sottile individuale si connette all'energia infinita della natura.",
         dual_india_loc: "Kanakamala, Kerala • India",
+        dual_btn_santhivanam: "Santhivanam.com &rarr;",
         dual_btn_india: "Info Ritiri in India",
         scuola_tag: "Punto di Riferimento Spirituale in Canton Ticino",
         scuola_title_1: "Parvati Scuola di Yoga:",
@@ -2674,13 +2692,16 @@
         dual_lugano_loc: "Via Ponte Tresa 7B, 6924 Sorengo",
         dual_btn_lugano: "Join in Sorengo",
         dual_india_badge: "🇮🇳 Kerala, India",
-        dual_india_subtitle: "Santhivanam Ashram",
-        dual_india_title: "Residential Retreats at Santhivanam Ashram",
-        dual_india_desc: "For Parvati students desiring deep residential immersion in the land of origin:",
-        dual_india_p1: "<strong>Immersive Residential Sadhana</strong>: Intensive practice in the sacred nature of Kanakamala (Thrissur, Kerala).",
-        dual_india_p2: "<strong>Noble Silence (Mauna)</strong>: Deep cellular renewal away from digital and worldly overstimulation.",
-        dual_india_p3: "<strong>Pure Ayurvedic Nutrition</strong>: Wholesome sattvic meals prepared per Acharya's traditional principles.",
+        dual_india_subtitle: "Santhivanam Yoga Ashram • The Forest of Peace",
+        dual_india_title: "Residential Retreats at Santhivanam Yoga Ashram",
+        dual_india_motto: "Guiding Principle: 'Merging with Nature is the Real Success'",
+        dual_india_desc: "Santhivanam, meaning <strong>'The Forest of Peace,'</strong> is a unique spiritual sanctuary founded by <strong>Acharya Sooryanarayan</strong> at the serene foothills of Kanakamala (Kodassery, Kerala), where nature, meditation, and self-discovery converge in perfect harmony:",
+        dual_india_p1: "<strong>The Forest of Peace & Universal Family</strong>: Nurturing peace, kindness, empathy, and oneness with all life. Humans, animals, birds, trees, and plants are all cherished members of one universal family. True fulfilment comes when we reconnect with this web of life.",
+        dual_india_p2: "<strong>Experience the Magic of Nature (7 Portals)</strong>: An invitation to slow down and observe: touch living trees, watch seeds sprout into shoots, inhale blooming flowers turning into fruits, observe fish gliding in crystal ponds, enjoy resident dancing peacocks, and bathe in natural mineral spring waters.",
+        dual_india_p3: "<strong>Live Simply, Eat Mindfully</strong>: Traditional South Indian cuisine prepared with love using fresh, organic vegetables grown in the Ashram's gardens, with guests warmly welcomed to participate in gardening, harvesting, and mindful food preparation (Seva).",
+        dual_india_p4: "<strong>A Path to Inner Fulfilment</strong>: Embracing nature as our family dissolves loneliness into wholeness. Through silence (Mauna), meditation, and Kayakalpa yoga, subtle energy within us connects with the infinite energy of nature.",
         dual_india_loc: "Kanakamala, Kerala • India",
+        dual_btn_santhivanam: "Santhivanam.com &rarr;",
         dual_btn_india: "India Retreat Info",
         scuola_tag: "Spiritual Landmark in Canton Ticino",
         scuola_title_1: "Parvati Yoga School:",
